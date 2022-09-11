@@ -189,6 +189,21 @@
         </div>
       </div>
     </section>
+    <section>
+      <div class="container">
+        <div class="d-flex justify-content-between top-space w-100">
+          <div class="medical-video">
+            <img src="~/static/images/bitmap.png" alt="" style="width:100%;height:100%">
+          </div>
+          <div class="medical-text">
+            <h1 class="title">Personal care & healthy living</h1>
+            <p class="subtitle">Medicare gives you 24/7, all-in-one healthcare. We're here for you through sickness.</p>
+            <p class="discription">When you're feeling sick, Babylon gives you 24/7 access to care. When you're back on your feet, we give you the tools and advice to stay healthy.</p>
+            <button class="btn bg-color bordered-round">Read More</button>
+          </div>
+        </div>
+      </div>
+    </section>
   </div>
 
 </template>

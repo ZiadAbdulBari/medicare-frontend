@@ -72,3 +72,29 @@ body{
     background-color: white;
     border-radius: 20px;
 }
+.medical-video{
+    width: 50%;
+    height: 500px;
+    background-color: #9e9cea;
+    border-radius: 20px;
+}
+.medical-text{
+    width: 45%;  
+}
+.title{
+    width: 420px;
+    margin-bottom: 30px;
+    color: #333333;
+}
+.subtitle{
+    color: #333333;
+    margin-bottom: 20px;
+    font-size: 20px;
+}
+.discription{
+    color: #33333386;
+    margin-bottom: 40px;
+}
+.top-space{
+    margin-top: 80px;
+}
