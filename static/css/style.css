@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+textarea:hover, 
+input:hover, 
+textarea:active, 
+input:active, 
+textarea:focus, 
+input:focus,
+button:focus,
+button:active,
+button:hover,
+label:focus,
+.btn:active,
+.btn.active
+{
+    outline:0px !important;
+    -webkit-appearance:none;
+    /* box-shadow: none !important; */
+}
+.bg-color{
+    background-color: #4B49AC;
+    color: white;
+}
+.bordered-round{
+    border: 1px solid #4B49AC;
+    border-radius: 150px;
+}
+::selection{
+    background: #4B49AC;
+    color: white;
+}
+.common-bg-color{
+    background-color: #F7F6FE;
+}
+.content-wrapper{
+    padding: 80px 0;
+}
+.section-header{
+    margin-bottom: 70px;
+}
+body{
+    font-family: 'poppins';
+}
+.footer{
+    padding: 50px 0;
+    background-color: #333333;
+    color: white;
+}
+.banner-main-text{
+    font-size: 72px;
+}
+.service-tab{
+    width: 50%;
+}
+.tab-button{
+    width: 170px;
+    height: 224px;
+    background-color: #9e9cea!important;
+    border-radius: 10px;
+}
+.tab-button-icon{
+    width: 100px;
+    height: 100px;
+    background-color: #fff;
+    border-radius: 50%;
+}
+.tab-button-text{
+    margin-top: 26px;
+    color: white;
+    font-weight: 600;
+}
+.tab-bg{
+    background-color: white;
+    border-radius: 20px;
+}
