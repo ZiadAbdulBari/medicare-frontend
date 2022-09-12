@@ -13,8 +13,10 @@ label:focus,
 .btn.active
 {
     outline:0px !important;
+    background-color: #fff;
+     border-color: #d5d5d5;
     -webkit-appearance:none;
-    /* box-shadow: none !important; */
+    box-shadow: none !important;
 }
 .bg-color{
     background-color: #4B49AC;
@@ -142,4 +144,14 @@ body{
 }
 .user-name{
     color: #333333e9;
+}
+.reg-form-wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100%;
+}
+.reg_form{
+    width: 500px;
 }
