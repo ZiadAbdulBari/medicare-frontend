@@ -57,6 +57,21 @@ body{
     background-color: #333333;
     color: white;
 }
+.header-pic{
+    height: 50px;
+    width: 50px;
+    background-color: #4B49AC;
+    color: white;
+    border-radius: 50%;
+}
+.dropdown-item:hover{
+    background-color: #4B49AC;
+    color: white;
+}
+.after-login{
+    display: flex;
+    align-items: center;
+}
 .banner-main-text{
     font-size: 72px;
 }
@@ -160,4 +175,17 @@ body{
 }
 .reg_form{
     width: 500px;
+}
+
+.profile-pic{
+    height: 300px;
+    width: 80%;
+    background-color: #333333;
+    border-radius: 10px;
+}
+.user-profile{
+    height: 72vh;
+    width: 100%;
+    margin-top: 80px;
+
 }

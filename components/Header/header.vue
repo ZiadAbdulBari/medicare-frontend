@@ -2,7 +2,7 @@
     <div>
         <nav class="navbar navbar-expand-lg bg-light">
             <div class="container">
-                <a class="navbar-brand" href="#">Medicare.</a>
+                <nuxt-link class="navbar-brand" to="/">Medicare.</nuxt-link>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
                 </button>
@@ -26,9 +26,35 @@
                     </ul>
                 </div>
                 <div>
-                    <nuxt-link to="/registration/doctor" class="btn bg-color bordered-round"> D Registration</nuxt-link>
-                    <nuxt-link to="/registration/patient" class="btn bg-color bordered-round"> P Registration</nuxt-link>
-                    <nuxt-link to="/login" class="btn bordered bordered-round">Login</nuxt-link>
+                    <div class="d-flex d-none">
+                        <div class="dropdown">
+                            <a class="btn btn bg-color bordered-round dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Registration
+                            </a>
+
+                            <ul class="dropdown-menu">
+                                <li><nuxt-link to="/registration/doctor" class="dropdown-item" href="#">Registration As A Doctor</nuxt-link></li>
+                                <li><nuxt-link to="/registration/patient" class="dropdown-item" href="#">Registration As A Patient</nuxt-link></li>
+                            </ul>
+                        </div>
+                        <nuxt-link to="/login" class="btn bordered bordered-round ms-3">Login</nuxt-link>
+                    </div>
+                    <ul class="navbar-nav">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle after-login" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <div class="header-pic me-2">
+                                    <h5 class="mb-0">U</h5>
+                                </div>
+                                <h6 class="me-1 mb-0">Your Name</h6>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><nuxt-link class="dropdown-item" to="/profile">Profile</nuxt-link></li>
+                                <li><nuxt-link class="dropdown-item" to="/history">History</nuxt-link></li>
+                                <li><a class="dropdown-item" href="#">Logout</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                   
                 </div>
             </div>
         </nav>
