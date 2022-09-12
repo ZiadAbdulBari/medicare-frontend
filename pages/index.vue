@@ -299,9 +299,9 @@
                     <div class="feedback">
                       <p>“Using Medicare has enabled me to grow my private practice and offer therapeutic services to clients throughout California. The technology is excellent and very user friendly. I would recommend Medicare to any practicing clinician.”</p>
                     </div>
-                    <div class="d-flex align-items-center">
+                    <div class="d-flex">
                       <div class="user-img"></div>
-                      <div class="ms-3">
+                      <div class="ms-3 align-self-center">
                         <h5 class="user-name">Ziad Abdul Bari</h5>
                         <p class="possition">Dentist</p>
                       </div>

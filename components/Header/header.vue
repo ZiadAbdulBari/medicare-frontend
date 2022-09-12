@@ -26,7 +26,8 @@
                     </ul>
                 </div>
                 <div>
-                    <button class="btn bg-color bordered-round">Registration</button>
+                    <nuxt-link to="/registration/doctor" class="btn bg-color bordered-round"> D Registration</nuxt-link>
+                    <nuxt-link to="/registration/patient" class="btn bg-color bordered-round"> P Registration</nuxt-link>
                     <button class="btn bordered bordered-round">Login</button>
                 </div>
             </div>
