@@ -204,6 +204,116 @@
         </div>
       </div>
     </section>
+    <section>
+      <div class="container">
+          <div class="row top-space">
+            <div class="col-md-12">
+              <div class="row">
+                <div class="col-md-3">
+                  <div class="doctor">
+                      <div class="doctor-pic">
+                        <img src="" alt="">
+                      </div>
+                      <div>
+                        <h5 class="text-center mt-4">Ziad Abdul Bari</h5>
+                        <p class="text-center mt-2 mb-3">Dental</p>
+                        <button class="btn bg-color bordered-round">Appointment</button>
+                      </div>
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <div class="doctor">
+                      <div class="doctor-pic">
+                        <img src="" alt="">
+                      </div>
+                      <div>
+                        <h5 class="text-center mt-4">Ziad Abdul Bari</h5>
+                        <p class="text-center mt-2 mb-3">Dental</p>
+                        <button class="btn bg-color bordered-round">Appointment</button>
+                      </div>
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <div class="doctor">
+                      <div class="doctor-pic">
+                        <img src="" alt="">
+                      </div>
+                      <div>
+                        <h5 class="text-center mt-4">Ziad Abdul Bari</h5>
+                        <p class="text-center mt-2 mb-3">Dental</p>
+                        <button class="btn bg-color bordered-round">Appointment</button>
+                      </div>
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <div class="doctor">
+                      <div class="doctor-pic">
+                        <img src="" alt="">
+                      </div>
+                      <div>
+                        <h5 class="text-center mt-4">Ziad Abdul Bari</h5>
+                        <p class="text-center mt-2 mb-3">Dental</p>
+                        <button class="btn bg-color bordered-round">Appointment</button>
+                      </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+    </section>
+    <section class="common-bg-color">
+      <div class="container">
+        <div class="content-wrapper">
+          <p class="text-center">Testimonials</p>
+          <h1 class="text-center mb-5">Trusted by clinicians worldwide</h1>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="feedback-wrapper">
+                    <div class="quote-icon">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#4B49AC" class="bi bi-quote" viewBox="0 0 16 16">
+                        <path d="M12 12a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1h-1.388c0-.351.021-.703.062-1.054.062-.372.166-.703.31-.992.145-.29.331-.517.559-.683.227-.186.516-.279.868-.279V3c-.579 0-1.085.124-1.52.372a3.322 3.322 0 0 0-1.085.992 4.92 4.92 0 0 0-.62 1.458A7.712 7.712 0 0 0 9 7.558V11a1 1 0 0 0 1 1h2Zm-6 0a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1H4.612c0-.351.021-.703.062-1.054.062-.372.166-.703.31-.992.145-.29.331-.517.559-.683.227-.186.516-.279.868-.279V3c-.579 0-1.085.124-1.52.372a3.322 3.322 0 0 0-1.085.992 4.92 4.92 0 0 0-.62 1.458A7.712 7.712 0 0 0 3 7.558V11a1 1 0 0 0 1 1h2Z"/>
+                      </svg>
+                    </div>
+                    <div class="feedback">
+                      <p>“Using Medicare has enabled me to grow my private practice and offer therapeutic services to clients throughout California. The technology is excellent and very user friendly. I would recommend Medicare to any practicing clinician.”</p>
+                    </div>
+                    <div class="d-flex align-items-center">
+                      <div class="user-img"></div>
+                      <div class="ms-3">
+                        <h5 class="user-name">Ziad Abdul Bari</h5>
+                        <p class="possition">Dentist</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="feedback-wrapper">
+                    <div class="quote-icon">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#4B49AC" class="bi bi-quote" viewBox="0 0 16 16">
+                        <path d="M12 12a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1h-1.388c0-.351.021-.703.062-1.054.062-.372.166-.703.31-.992.145-.29.331-.517.559-.683.227-.186.516-.279.868-.279V3c-.579 0-1.085.124-1.52.372a3.322 3.322 0 0 0-1.085.992 4.92 4.92 0 0 0-.62 1.458A7.712 7.712 0 0 0 9 7.558V11a1 1 0 0 0 1 1h2Zm-6 0a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1H4.612c0-.351.021-.703.062-1.054.062-.372.166-.703.31-.992.145-.29.331-.517.559-.683.227-.186.516-.279.868-.279V3c-.579 0-1.085.124-1.52.372a3.322 3.322 0 0 0-1.085.992 4.92 4.92 0 0 0-.62 1.458A7.712 7.712 0 0 0 3 7.558V11a1 1 0 0 0 1 1h2Z"/>
+                      </svg>
+                    </div>
+                    <div class="feedback">
+                      <p>“Using Medicare has enabled me to grow my private practice and offer therapeutic services to clients throughout California. The technology is excellent and very user friendly. I would recommend Medicare to any practicing clinician.”</p>
+                    </div>
+                    <div class="d-flex align-items-center">
+                      <div class="user-img"></div>
+                      <div class="ms-3">
+                        <h5 class="user-name">Ziad Abdul Bari</h5>
+                        <p class="possition">Dentist</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   </div>
 
 </template>
