@@ -18,9 +18,14 @@ label:focus,
     -webkit-appearance:none;
     box-shadow: none !important;
 }
+a,a:hover{
+    text-decoration: none;
+    color: #333333;
+}
 .bg-color{
     background-color: #4B49AC;
     color: white;
+    padding: 5px 30px;
 }
 .btn:hover{
     border: 1px solid #4B49AC!important;
@@ -29,6 +34,7 @@ label:focus,
 .bordered-round{
     border: 1px solid #4B49AC;
     border-radius: 150px;
+    padding: 5px 30px;
 }
 ::selection{
     background: #4B49AC;

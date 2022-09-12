@@ -17,7 +17,7 @@ export default {
     components: { Header, Footer },
     data(){
         return{
-        navExclude: ['registration']
+        navExclude: ['registration','login']
         }
     },
     computed: {
