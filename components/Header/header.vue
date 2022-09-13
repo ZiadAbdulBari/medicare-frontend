@@ -26,7 +26,7 @@
                     </ul>
                 </div>
                 <div>
-                    <div class="d-flex d-none">
+                    <div class="d-flex">
                         <div class="dropdown">
                             <a class="btn btn bg-color bordered-round dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Registration
@@ -39,7 +39,7 @@
                         </div>
                         <nuxt-link to="/login" class="btn bordered bordered-round ms-3">Login</nuxt-link>
                     </div>
-                    <ul class="navbar-nav">
+                    <ul class="navbar-nav d-none">
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle after-login" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 <div class="header-pic me-2">

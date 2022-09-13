@@ -29,7 +29,32 @@
 
 <script>
     export default {
-        
+        data(){
+            return{
+                email:"",
+                password:"",
+            }
+        },
+        methods:{
+            login(){
+                let url = "user/login";
+                const data = {
+                    email:this.email,
+                    password:this.password
+                }
+                this.$axios.post(url,data).then(res=>{
+                    console.log(res);
+                    if(res.status==200){
+                        if(process.browser){
+                            window.localStorage.setItem('token',res.data.access_token);
+                        }
+                        this.$router.push('/');
+                    }
+                }).catch(err => {
+                    console.log(err);
+                })
+            }
+        }
     }
 </script>
 

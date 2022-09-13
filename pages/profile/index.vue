@@ -17,7 +17,6 @@
                                                     <div class="mb-3">
                                                         <label for="exampleInputEmail1" class="form-label">Name</label>
                                                         <input type="email" v-model="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                                                        <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
@@ -32,7 +31,6 @@
                                                     <div class="mb-3">
                                                         <label for="exampleInputEmail1" class="form-label">Contact</label>
                                                         <input type="email" v-model="contact" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                                                        <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
@@ -47,7 +45,6 @@
                                                     <div class="mb-3">
                                                         <label for="exampleInputEmail1" class="form-label">Age</label>
                                                         <input type="email" v-model="age" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                                                        <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
                                                     </div>
                                                 </div>
                                                 
@@ -67,7 +64,31 @@
 
 <script>
     export default {
-        
+        data(){
+            return{
+                data:{},
+            }
+        },
+        created(){
+            this.getProfileData();
+        },
+         methods:{
+            getProfileData(){
+                let url = "user/profile/";
+                if(process.browser){
+                    const token = JSON.stringify(window.localStorage.getItem('token'));
+                    // console.log(token);
+                    // return
+                    this.$axios.get(url,{ headers: { Authorization: token } }).then(res=>{
+                        this.data = res.data.data[0];
+                        console.log(res);
+                    }).catch(err => {
+                        console.log(err);
+                    })
+                }
+                
+            }
+        }
     }
 </script>
 
