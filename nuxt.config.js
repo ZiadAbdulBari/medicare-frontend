@@ -19,6 +19,7 @@ export default {
     script: [
       // { src: '/js/jquery-3.5.1.min.js', type: "text/javascript", body: true, ssr: false },
       { src: '/js/bootstrap.bundle.min.js',type: "text/javascript", body: true, ssr: false },
+      { src: '/js/sweetalert2@11.js',type: "text/javascript", body: true, ssr: false },
     ]
   },
 

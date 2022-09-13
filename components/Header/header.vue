@@ -26,7 +26,8 @@
                     </ul>
                 </div>
                 <div>
-                    <div class="d-flex">
+                    
+                    <div class="d-flex" v-if="is_loggedin=='false'">
                         <div class="dropdown">
                             <a class="btn btn bg-color bordered-round dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Registration
@@ -39,18 +40,19 @@
                         </div>
                         <nuxt-link to="/login" class="btn bordered bordered-round ms-3">Login</nuxt-link>
                     </div>
-                    <ul class="navbar-nav d-none">
+                    <ul class="navbar-nav" v-if="is_loggedin=='true'">
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle after-login" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 <div class="header-pic me-2">
-                                    <h5 class="mb-0">U</h5>
+                                    <img v-if="imageURL" :src="imageURL" alt="" width="100%">
+                                    <img v-if="!imageURL" src="~/static/images/user.png" alt="" width="100%">
                                 </div>
-                                <h6 class="me-1 mb-0">Your Name</h6>
+                                <h6 class="me-1 mb-0">{{name}}</h6>
                             </a>
                             <ul class="dropdown-menu">
                                 <li><nuxt-link class="dropdown-item" to="/profile">Profile</nuxt-link></li>
                                 <li><nuxt-link class="dropdown-item" to="/history">History</nuxt-link></li>
-                                <li><a class="dropdown-item" href="#">Logout</a></li>
+                                <li><a class="dropdown-item" @click.prevent="logout()">Logout</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -63,7 +65,33 @@
 
 <script>
     export default {
-        
+        data(){
+            return{
+                is_loggedin:'',
+                name:'',
+                imageURL:'',
+            }
+        },
+        created(){
+            if(process.browser){
+                this.is_loggedin = window.localStorage.getItem('is_loggedin');
+                const userData = JSON.parse(window.localStorage.getItem('userData'));
+                this.name = userData.name;
+                this.imageURL = userData.image;
+                // console.log(this.is_loggedin);
+            }
+        },
+        methods:{
+            logout(){
+                if(process.browser){
+                    window.localStorage.setItem('is_loggedin','false');
+                    window.localStorage.setItem('token','');
+                    window.localStorage.setItem('userData',{});
+                    this.is_loggedin='false';
+                    this.$router.push('/');
+                }
+            }
+        }
     }
 </script>
 

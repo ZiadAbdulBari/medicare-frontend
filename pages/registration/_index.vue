@@ -53,8 +53,23 @@
                     email: this.email,
                     password: this.password,
                 }
-                this.$axios.post(url,data).then(resp=>{
-                    console.log(resp);
+                this.$axios.post(url,data).then(res=>{
+                    console.log(res);
+                    if(res.status==200){
+                        const Toast = Swal.mixin({
+                            toast: true,
+                            position: 'bottom-end',
+                            showConfirmButton: false,
+                            timer: 3000,
+                            timerProgressBar: true,
+                           
+                        })
+                        Toast.fire({
+                            icon: 'success',
+                            title: 'Successfully Registered'
+                        })
+                        this.$router.push('/login');
+                    }
                 }).catch(err => {
                     console.log(err);
                 })

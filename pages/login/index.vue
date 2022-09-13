@@ -40,15 +40,45 @@
                 let url = "user/login";
                 const data = {
                     email:this.email,
-                    password:this.password
+                    password:this.password,
+                    userData:""
                 }
                 this.$axios.post(url,data).then(res=>{
                     console.log(res);
                     if(res.status==200){
+                        // this.userData = res.data.checkEmail[0]
                         if(process.browser){
                             window.localStorage.setItem('token',res.data.access_token);
+                            window.localStorage.setItem('is_loggedin',"true");
+                            window.localStorage.setItem('userData', JSON.stringify(res.data.checkEmail[0]));
                         }
+                        const Toast = Swal.mixin({
+                            toast: true,
+                            position: 'bottom-end',
+                            showConfirmButton: false,
+                            timer: 3000,
+                            timerProgressBar: true,
+                           
+                        })
+                        Toast.fire({
+                            icon: 'success',
+                            title: 'Successfully Loggedin'
+                        })
                         this.$router.push('/');
+                    }
+                    else{
+                        const Toast = Swal.mixin({
+                            toast: true,
+                            position: 'bottom-end',
+                            showConfirmButton: false,
+                            timer: 3000,
+                            timerProgressBar: true,
+                           
+                        })
+                        Toast.fire({
+                            icon: 'error',
+                            title: 'Authorization Failed'
+                        })
                     }
                 }).catch(err => {
                     console.log(err);
