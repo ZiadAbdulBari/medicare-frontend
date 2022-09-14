@@ -86,7 +86,7 @@
                 if(process.browser){
                     window.localStorage.setItem('is_loggedin','false');
                     window.localStorage.setItem('token','');
-                    window.localStorage.setItem('userData',{});
+                    window.localStorage.setItem('userData',"{}");
                     this.is_loggedin='false';
                     this.$router.push('/');
                 }

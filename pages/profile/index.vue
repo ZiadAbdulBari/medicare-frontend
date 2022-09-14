@@ -8,7 +8,9 @@
                             <div class="col-md-4">
                                 <div class="profile-pic"></div>
                             </div>
-                            <div class="col-md-8">
+                            <PatientProfile v-if="role=='patient'" :data="data"/>
+                            <DoctorProfile v-if="role=='doctor'"/>
+                            <!-- <div class="col-md-8">
                                 <form>
                                     <div class="row">
                                         <div class="col-md-12">
@@ -53,7 +55,7 @@
                                     </div>
                                     <button type="submit" class="btn bg-color bordered-round mt-4" @click.prevent="updateProfile()">Update Profile</button>
                                 </form>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                 </div>
@@ -63,22 +65,26 @@
 </template>
 
 <script>
+    import PatientProfile from "../../components/PatientProfile/patientProfile.vue";
+    import DoctorProfile from "../../components/DoctorProfile/doctorProfile.vue";
     export default {
+        components:{PatientProfile,DoctorProfile},
         data(){
             return{
                 data:{},
+                role:'',
                 id:"",
-                name: "",
-                email: "",
-                contact: "",
-                address: "",
-                age: "",
+                // name: "",
+                // email: "",
+                // contact: "",
+                // address: "",
+                // age: "",
             }
         },
         created(){
             this.getProfileData();
         },
-         methods:{
+        methods:{
             getProfileData(){
                 let url = "user/profile/";
                 if(process.browser){
@@ -88,62 +94,18 @@
                         if(res.status==200){
                             this.data = res.data.profileData[0];
                             this.id = res.data.profileData[0]._id;
-                            this.name = res.data.profileData[0].name;
-                            this.email = res.data.profileData[0].email;
-                            this.contact = res.data.profileData[0].contact;
-                            this.address = res.data.profileData[0].address;
-                            this.age = res.data.profileData[0].age;
+                            this.role = res.data.profileData[0].role;
+                            // this.name = res.data.profileData[0].name;
+                            // this.email = res.data.profileData[0].email;
+                            // this.contact = res.data.profileData[0].contact;
+                            // this.address = res.data.profileData[0].address;
+                            // this.age = res.data.profileData[0].age;
                         }
                     }).catch(err => {
                         console.log(err);
                     })
                 }
             },
-            updateProfile(){
-                const url = "user/edit-profile/"+this.id;
-                if(process.browser){
-                    const token = window.localStorage.getItem('token');
-                    // console.log(token);
-                    let data = {
-                        name:this.name,
-                        email:this.email,
-                        contact:this.contact,
-                        address:this.address,
-                        age:this.age
-                    }
-                    this.$axios.post(url, data, { headers: { Authorization: token } }).then(res=>{
-                        console.log(res);
-                        if(res.status==200){
-                            const Toast = Swal.mixin({
-                                toast: true,
-                                position: 'bottom-end',
-                                showConfirmButton: false,
-                                timer: 3000,
-                                timerProgressBar: true,
-                            })
-                            Toast.fire({
-                                icon: 'success',
-                                title: 'Profile Update Seccessfull'
-                            })
-                        }
-                        else{
-                            const Toast = Swal.mixin({
-                                toast: true,
-                                position: 'bottom-end',
-                                showConfirmButton: false,
-                                timer: 3000,
-                                timerProgressBar: true,
-                            })
-                            Toast.fire({
-                                icon: 'error',
-                                title: 'Profile Update Failed'
-                            })
-                        }
-                    }).catch(err => {
-                        console.log(err);
-                    })
-                }
-            }
         }
     }
 </script>
