@@ -9,7 +9,7 @@
                                 <div class="profile-pic"></div>
                             </div>
                             <PatientProfile v-if="role=='patient'" :data="data"/>
-                            <DoctorProfile v-if="role=='doctor'"/>
+                            <DoctorProfile v-if="role=='doctor'" :data="data"/>
                             <!-- <div class="col-md-8">
                                 <form>
                                     <div class="row">
