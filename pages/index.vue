@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="bootstrap-iso">
     <section>
       <div class="d-flex align-items-center">
         <div class="w-100 text-end">
@@ -61,126 +61,30 @@
         </div>
       </div>
     </section>
-    <section class="common-bg-color">
+    <section class="common-bg-color d-none">
       <div class="container">
         <div class="content-wrapper">
           <p class="text-center">Service</p>
           <h1 class="text-center section-header">Our Medical Services</h1>
           <div class="d-flex gap-2 align-items-start">
             <div class="nav nav-pills me-3 d-flex gap-2 align-content-between  flex-wrap service-tab justify-content-between" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-              <div class="nav-link tab-button d-flex align-items-center justify-content-center active" id="v-pills-service-tab-1" data-bs-toggle="pill" data-bs-target="#v-pills-service-1" type="button" role="tab" aria-controls="v-pills-service-1" aria-selected="true">
+              <div class="nav-link tab-button d-flex align-items-center justify-content-center active" v-for="(service,i) in coreService" :key="i" :id="'v-pills-'+service.service_name+'-tab-'+i" data-bs-toggle="pill" :data-bs-target="'#v-pills-'+service.service_name+'-'+i" type="button" role="tab" :aria-controls="'v-pills-'+service.service_name+'-'+i" aria-selected="true">
                 <div class="text-center">
                   <div class="tab-button-icon">
 
                   </div>
-                  <p class="tab-button-text">Dental</p>
+                  <p class="tab-button-text">{{service.service_name}}</p>
                 </div>
-              <!-- <button class="nav-link" id="v-pills-service-tab-1" data-bs-toggle="pill" data-bs-target="#v-pills-service-1" type="button" role="tab" aria-controls="v-pills-service-1" aria-selected="true">Dental</button> -->
-              </div>
-              <div class="nav-link tab-button d-flex align-items-center justify-content-center" id="v-pills-service-tab-2" data-bs-toggle="pill" data-bs-target="#v-pills-service-2" type="button" role="tab" aria-controls="v-pills-service-2" aria-selected="false">
-                <div class="text-center">
-                  <div class="tab-button-icon">
-
-                  </div>
-                  <p class="tab-button-text">Medicine</p>
-                </div>
-              <!-- <button class="nav-link" id="v-pills-service-tab-1" data-bs-toggle="pill" data-bs-target="#v-pills-service-1" type="button" role="tab" aria-controls="v-pills-service-1" aria-selected="true">Dental</button> -->
-              </div>
-              <div class="nav-link tab-button d-flex align-items-center justify-content-center" id="v-pills-service-tab-3" data-bs-toggle="pill" data-bs-target="#v-pills-service-3" type="button" role="tab" aria-controls="v-pills-service-3" aria-selected="false">
-                <div class="text-center">
-                  <div class="tab-button-icon">
-
-                  </div>
-                  <p class="tab-button-text">Cardeology</p>
-                </div>
-              <!-- <button class="nav-link" id="v-pills-service-tab-1" data-bs-toggle="pill" data-bs-target="#v-pills-service-1" type="button" role="tab" aria-controls="v-pills-service-1" aria-selected="true">Dental</button> -->
-              </div>
-              <div class="nav-link tab-button d-flex align-items-center justify-content-center" id="v-pills-service-tab-4" data-bs-toggle="pill" data-bs-target="#v-pills-service-4" type="button" role="tab" aria-controls="v-pills-service-4" aria-selected="false">
-                <div class="text-center">
-                  <div class="tab-button-icon">
-
-                  </div>
-                  <p class="tab-button-text">Cardeology</p>
-                </div>
-              <!-- <button class="nav-link" id="v-pills-service-tab-1" data-bs-toggle="pill" data-bs-target="#v-pills-service-1" type="button" role="tab" aria-controls="v-pills-service-1" aria-selected="true">Dental</button> -->
-              </div>
-              <div class="nav-link tab-button d-flex align-items-center justify-content-center" id="v-pills-service-tab-5" data-bs-toggle="pill" data-bs-target="#v-pills-service-5" type="button" role="tab" aria-controls="v-pills-service-5" aria-selected="false">
-                <div class="text-center">
-                  <div class="tab-button-icon">
-
-                  </div>
-                  <p class="tab-button-text">Cardeology</p>
-                </div>
-              <!-- <button class="nav-link" id="v-pills-service-tab-1" data-bs-toggle="pill" data-bs-target="#v-pills-service-1" type="button" role="tab" aria-controls="v-pills-service-1" aria-selected="true">Dental</button> -->
-              </div>
-              <div class="nav-link tab-button d-flex align-items-center justify-content-center" id="v-pills-service-tab-6" data-bs-toggle="pill" data-bs-target="#v-pills-service-6" type="button" role="tab" aria-controls="v-pills-service-6" aria-selected="false">
-                <div class="text-center">
-                  <div class="tab-button-icon">
-
-                  </div>
-                  <p class="tab-button-text">Cardeology</p>
-                </div>
-              <!-- <button class="nav-link" id="v-pills-service-tab-1" data-bs-toggle="pill" data-bs-target="#v-pills-service-1" type="button" role="tab" aria-controls="v-pills-service-1" aria-selected="true">Dental</button> -->
               </div>
             </div>
             <div class="tab-content tab-bg" id="v-pills-tabContent">
-              <div class="tab-pane fade show active" id="v-pills-service-1" role="tabpanel" aria-labelledby="v-pills-service-tab-1" tabindex="0">
+              <div class="tab-pane fade show active" v-for="(service,i) in coreService" :key="i" :id="'v-pills-'+service.service_name+'-'+i" role="tabpanel" :aria-labelledby="'v-pills-'+service.service_name+'-tab-'+i" tabindex="0">
                 <div class="tab-img">
                   <img src="~/static/images/service1.png" class="w-100" alt="">
                 </div>
                 <div class="tab-text mt-4 pb-3 px-3">
-                  <h3>Dental Care Service</h3>
-                  <p>As I went on, still gaining velocity, the palpitation of night and day merged into one continuous greyness.</p>
-                  <button class="btn bg-color bordered-round">Learn More</button>
-                </div>
-              </div>
-              <div class="tab-pane fade" id="v-pills-service-2" role="tabpanel" aria-labelledby="v-pills-service-tab-2" tabindex="0">
-                <div class="tab-img">
-                  <img src="~/static/images/service1.png" class="w-100" alt="">
-                </div>
-                <div class="tab-text mt-4 pb-3 px-3">
-                  <h3>Dental Care Service</h3>
-                  <p>As I went on, still gaining velocity, the palpitation of night and day merged into one continuous greyness.</p>
-                  <button class="btn bg-color bordered-round">Learn More</button>
-                </div>
-              </div>
-              <div class="tab-pane fade" id="v-pills-service-3" role="tabpanel" aria-labelledby="v-pills-service-tab-3" tabindex="0">
-                <div class="tab-img">
-                  <img src="~/static/images/service1.png" class="w-100" alt="">
-                </div>
-                <div class="tab-text mt-4 pb-3 px-3">
-                  <h3>Dental Care Service</h3>
-                  <p>As I went on, still gaining velocity, the palpitation of night and day merged into one continuous greyness.</p>
-                  <button class="btn bg-color bordered-round">Learn More</button>
-                </div>
-              </div>
-              <div class="tab-pane fade" id="v-pills-service-4" role="tabpanel" aria-labelledby="v-pills-service-tab-4" tabindex="0">
-                <div class="tab-img">
-                  <img src="~/static/images/service1.png" class="w-100" alt="">
-                </div>
-                <div class="tab-text mt-4 pb-3 px-3">
-                  <h3>Dental Care Service</h3>
-                  <p>As I went on, still gaining velocity, the palpitation of night and day merged into one continuous greyness.</p>
-                  <button class="btn bg-color bordered-round">Learn More</button>
-                </div>
-              </div>
-              <div class="tab-pane fade" id="v-pills-service-5" role="tabpanel" aria-labelledby="v-pills-service-tab-5" tabindex="0">
-                <div class="tab-img">
-                  <img src="~/static/images/service1.png" class="w-100" alt="">
-                </div>
-                <div class="tab-text mt-4 pb-3 px-3">
-                  <h3>Dental Care Service</h3>
-                  <p>As I went on, still gaining velocity, the palpitation of night and day merged into one continuous greyness.</p>
-                  <button class="btn bg-color bordered-round">Learn More</button>
-                </div>
-              </div>
-              <div class="tab-pane fade" id="v-pills-service-6" role="tabpanel" aria-labelledby="v-pills-service-tab-6" tabindex="0">
-                <div class="tab-img">
-                  <img src="~/static/images/service1.png" class="w-100" alt="">
-                </div>
-                <div class="tab-text mt-4 pb-3 px-3">
-                  <h3>Dental Care Service</h3>
-                  <p>As I went on, still gaining velocity, the palpitation of night and day merged into one continuous greyness.</p>
+                  <h3>{{service.title}}</h3>
+                  <p>{{service.description}}</p>
                   <button class="btn bg-color bordered-round">Learn More</button>
                 </div>
               </div>
@@ -209,51 +113,15 @@
           <div class="row top-space">
             <div class="col-md-12">
               <div class="row">
-                <div class="col-md-3">
+                <div class="col-md-3" v-for="(doctor,i) in allDoctor.slice(0,4)" :key="i">
                   <div class="doctor">
                       <div class="doctor-pic">
                         <img src="" alt="">
                       </div>
                       <div>
-                        <h5 class="text-center mt-4">Ziad Abdul Bari</h5>
-                        <p class="text-center mt-2 mb-3">Dental</p>
-                        <button class="btn bg-color bordered-round">Appointment</button>
-                      </div>
-                  </div>
-                </div>
-                <div class="col-md-3">
-                  <div class="doctor">
-                      <div class="doctor-pic">
-                        <img src="" alt="">
-                      </div>
-                      <div>
-                        <h5 class="text-center mt-4">Ziad Abdul Bari</h5>
-                        <p class="text-center mt-2 mb-3">Dental</p>
-                        <button class="btn bg-color bordered-round">Appointment</button>
-                      </div>
-                  </div>
-                </div>
-                <div class="col-md-3">
-                  <div class="doctor">
-                      <div class="doctor-pic">
-                        <img src="" alt="">
-                      </div>
-                      <div>
-                        <h5 class="text-center mt-4">Ziad Abdul Bari</h5>
-                        <p class="text-center mt-2 mb-3">Dental</p>
-                        <button class="btn bg-color bordered-round">Appointment</button>
-                      </div>
-                  </div>
-                </div>
-                <div class="col-md-3">
-                  <div class="doctor">
-                      <div class="doctor-pic">
-                        <img src="" alt="">
-                      </div>
-                      <div>
-                        <h5 class="text-center mt-4">Ziad Abdul Bari</h5>
-                        <p class="text-center mt-2 mb-3">Dental</p>
-                        <button class="btn bg-color bordered-round">Appointment</button>
+                        <h5 class="text-center mt-4">{{doctor.name}}</h5>
+                        <p class="text-center mt-2 mb-3">{{doctor.speacialist_on}}</p>
+                        <button class="btn bg-color bordered-round" data-bs-toggle="modal" data-bs-target="#exampleModal" @click.prevent="doctorId=doctor._id">Appointment</button>
                       </div>
                   </div>
                 </div>
@@ -314,12 +182,96 @@
         </div>
       </div>
     </section>
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Doctor Schedule</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="text-center">
+              <date-picker :inline="inline" v-model="date" @change="checkDoctorSchedule()"></date-picker>
+            </div>
+          </div>
+          <div class="modal-footer justify-content-start">
+            <h6>{{text}}</h6>
+            <table class="table" v-if="Object.entries(selectedDateInfo).length !== 0">
+              <tbody>
+                <tr class="table-info">
+                  <td>{{selectedDateInfo.day}}</td>
+                  <td>{{selectedDateInfo.time}}</td>
+                  <td>{{selectedDateInfo.hospital}}</td>
+                  <td><button type="button" class="btn bg-color bordered-round" @click="dateConfirm=true">Confirm</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-
 </template>
 
 <script>
+import 'vue2-datepicker/index.css';
 export default {
-  name: 'IndexPage'
+  name: 'IndexPage',
+  data(){
+    return{
+      inline:true,
+      coreService:[],
+      medicalService:{},
+      allDoctor:[],
+      feedback:[],
+      date:new Date(),
+      doctorId:"",
+      text:"",
+      selectedDateInfo:{},
+      dateConfirm:false,
+    }
+  },
+  mounted(){
+    
+  },
+  created(){
+    this.getCoreService();
+    this.getDoctors();
+  },
+  methods:{
+    getCoreService(){
+      const url = "home/all-core-service";
+      this.$axios.get(url).then(res=>{
+        // console.log(res);
+        this.coreService = res.data.coreService;
+      })
+    },
+    getDoctors(){
+      const url = "home/all-doctor/doctor";
+      this.$axios.get(url).then(res=>{
+        // console.log(res);
+        this.allDoctor = res.data.allDoctor;
+      })
+    },
+    checkDoctorSchedule(){
+      this.selectedDateInfo={};
+      this.text="";
+      if(process.browser){
+        let url = 'doctor/schedule-check/'+this.doctorId;
+        let data = {
+          date: this.date.toLocaleDateString()
+        };
+        this.$axios.post(url,data).then(res=>{
+          console.log(res);
+          if(res.status==200){
+            this.text= res.data.mgs;
+            this.selectedDateInfo = res.data.data;
+          }
+        })
+      }
+    }
+  }
 }
 </script>
+<style>
+</style>
