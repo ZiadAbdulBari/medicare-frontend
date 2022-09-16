@@ -13,8 +13,8 @@ label:focus,
 .btn.active
 {
     outline:0px !important;
-    background-color: #fff;
-     border-color: #d5d5d5;
+    /* background-color: #fff; */
+     /* border-color: #d5d5d5; */
     -webkit-appearance:none;
     box-shadow: none !important;
 }
@@ -27,14 +27,19 @@ a,a:hover{
     color: white;
     padding: 5px 30px;
 }
-.btn:hover,.bg-color:hover{
+.bg-color:hover{
     border: 1px solid #4B49AC!important;
     color: rgb(3, 3, 3)!important;
+    background-color: #ffffff!important;
 }
 .bordered-round{
     border: 1px solid #4B49AC;
     border-radius: 150px;
     padding: 5px 30px;
+}
+.bordered-round:hover{
+    background-color: #4B49AC!important;
+    color: rgb(255, 255, 255)!important;
 }
 ::selection{
     background: #4B49AC;
@@ -203,4 +208,12 @@ body{
 .schedule-info{
     background-color:#4B49AC!important;
     color: white!important;
+}
+button:focus, button:active, button:hover, .btn:active, .btn.active {
+    outline: 0px !important;
+    background-color: #fafafa!important;
+    color: #333333!important;
+    border-color: #4B49AC!important;
+    -webkit-appearance: none;
+    box-shadow: none !important;
 }

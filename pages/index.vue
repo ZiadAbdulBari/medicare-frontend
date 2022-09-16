@@ -121,7 +121,7 @@
                       <div>
                         <h5 class="text-center mt-4">{{doctor.name}}</h5>
                         <p class="text-center mt-2 mb-3">{{doctor.speacialist_on}}</p>
-                        <button class="btn bg-color bordered-round" data-bs-toggle="modal" data-bs-target="#exampleModal" @click.prevent="getDoctorInfo(doctor._id,doctor.name)">Appointment</button>
+                        <button class="btn btn-sm bg-color bordered-round" data-bs-toggle="modal" data-bs-target="#exampleModal" @click.prevent="getDoctorInfo(doctor._id,doctor.name)">Appointment</button>
                       </div>
                   </div>
                 </div>
@@ -198,7 +198,7 @@
                 <div class="col-md-12">
                   <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Patient Name</label>
-                    <input type="text" class="form-control" v-model="pathientName" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    <input type="text" class="form-control" v-model="patientName" id="exampleInputEmail1" aria-describedby="emailHelp">
                   </div>
                   <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Contact Number</label>
@@ -254,14 +254,14 @@ export default {
       medicalService:{},
       allDoctor:[],
       feedback:[],
-      userData:{name:" ", isLoggedin:""},
+      userData:{name:" ",patient_id:"",isLoggedin:""},
       date:new Date(),
       doctorId:"",
       doctorName:"",
       text:"",
       selectedDateInfo:{},
       dateConfirm:false,
-      pathientName:"",
+      patientName:"",
       contact:"",
       age:"",
       address:"",
@@ -275,6 +275,7 @@ export default {
       const loggedin = JSON.parse(window.localStorage.getItem('is_loggedin'));
       if(user){
         this.userData.name = user.name;
+        this.userData.patient_id = user._id;
         this.userData.isLoggedin = loggedin;
       }
     }
@@ -336,9 +337,10 @@ export default {
       }
       const data={
         user_name: this.userData.name,
+        patient_id: this.userData.patient_id,
         doctor_name: this.doctorName,
         doctor_id: this.doctorId,
-        patient_name: this.pathientName,
+        patient_name: this.patientName,
         contact: this.contact,
         age: this.age,
         disease: this.disease,
