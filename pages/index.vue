@@ -121,7 +121,7 @@
                       <div>
                         <h5 class="text-center mt-4">{{doctor.name}}</h5>
                         <p class="text-center mt-2 mb-3">{{doctor.speacialist_on}}</p>
-                        <button class="btn bg-color bordered-round" data-bs-toggle="modal" data-bs-target="#exampleModal" @click.prevent="doctorId=doctor._id">Appointment</button>
+                        <button class="btn bg-color bordered-round" data-bs-toggle="modal" data-bs-target="#exampleModal" @click.prevent="getDoctorInfo(doctor._id,doctor.name)">Appointment</button>
                       </div>
                   </div>
                 </div>
@@ -190,8 +190,35 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            <div class="text-center">
+            <div class="text-center" v-if="!dateConfirm">
               <date-picker :inline="inline" v-model="date" @change="checkDoctorSchedule()"></date-picker>
+            </div>
+            <div v-if="dateConfirm">
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Patient Name</label>
+                    <input type="text" class="form-control" v-model="pathientName" id="exampleInputEmail1" aria-describedby="emailHelp">
+                  </div>
+                  <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Contact Number</label>
+                    <input type="text" class="form-control" v-model="contact" id="exampleInputEmail1" aria-describedby="emailHelp">
+                  </div>
+                  <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Age</label>
+                    <input type="text" class="form-control" v-model="age" id="exampleInputEmail1" aria-describedby="emailHelp">
+                  </div>
+                  <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Address</label>
+                    <input type="text" class="form-control" v-model="address" id="exampleInputEmail1" aria-describedby="emailHelp">
+                  </div>
+                  <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Disease</label>
+                    <input type="text" class="form-control" v-model="disease" id="exampleInputEmail1" aria-describedby="emailHelp">
+                  </div>
+                  <button type="submit" class="bg-color bordered-round" @click.prevent="cerateAppointment()">Submit</button>
+                </div>
+              </div>
             </div>
           </div>
           <div class="modal-footer justify-content-start">
@@ -202,7 +229,9 @@
                   <td>{{selectedDateInfo.day}}</td>
                   <td>{{selectedDateInfo.time}}</td>
                   <td>{{selectedDateInfo.hospital}}</td>
-                  <td><button type="button" class="btn bg-color bordered-round" @click="dateConfirm=true">Confirm</button></td>
+                  <td v-if="userData.isLoggedin==true">
+                    <button type="button" class="bg-color bordered-round" @click.prevent="dateConfirm=true">Confirm</button>
+                  </td>
                 </tr>
               </tbody>
             </table>
@@ -224,17 +253,29 @@ export default {
       medicalService:{},
       allDoctor:[],
       feedback:[],
+      userData:{name:"", isLoggedin:""},
       date:new Date(),
       doctorId:"",
+      doctorName:"",
       text:"",
       selectedDateInfo:{},
       dateConfirm:false,
+      pathientName:"",
+      contact:"",
+      age:"",
+      address:"",
+      disease:"",
     }
   },
-  mounted(){
-    
-  },
   created(){
+    if(process.browser){
+      const user = JSON.parse(window.localStorage.getItem('userData'));
+      const loggedin = JSON.parse(window.localStorage.getItem('is_loggedin'));
+      if(user){
+        this.userData.name = user.name;
+        this.userData.isLoggedin = loggedin;
+      }
+    }
     this.getCoreService();
     this.getDoctors();
   },
@@ -244,6 +285,8 @@ export default {
       this.$axios.get(url).then(res=>{
         // console.log(res);
         this.coreService = res.data.coreService;
+      }).catch(error=>{
+        console.log(error);
       })
     },
     getDoctors(){
@@ -251,7 +294,13 @@ export default {
       this.$axios.get(url).then(res=>{
         // console.log(res);
         this.allDoctor = res.data.allDoctor;
+      }).catch(error=>{
+        console.log(error);
       })
+    },
+    getDoctorInfo(id,name){
+      this.doctorId = id;
+      this.doctorName = name;
     },
     checkDoctorSchedule(){
       this.selectedDateInfo={};
@@ -267,8 +316,46 @@ export default {
             this.text= res.data.mgs;
             this.selectedDateInfo = res.data.data;
           }
+        }).catch(error=>{
+          console.log(error);
         })
       }
+    },
+    cerateAppointment(){
+      const url = 'doctor/appointment';
+      let token="";
+      if(process.browser){
+        token = window.localStorage.getItem(token);
+      }
+      const data={
+        user_name: this.userData.name,
+        doctor_name: this.doctorName,
+        doctor_id: this.doctorId,
+        patient_name: this.pathientName,
+        contact: this.contact,
+        age: this.age,
+        disease: this.disease,
+        chosen_date: this.date,
+      }
+      this.$axios.post(url,data,{ headers: { Authorization: token } }).then(res=>{
+        console.log(res);
+        if(res.status==200){
+          const Toast = Swal.mixin({
+            toast: true,
+            position: 'bottom-end',
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            
+         })
+          Toast.fire({
+            icon: 'success',
+            title: 'Successfull'
+          })
+        }
+      }).catch(error=>{
+        console.log(error);
+      })
     }
   }
 }
