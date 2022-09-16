@@ -223,9 +223,10 @@
           </div>
           <div class="modal-footer justify-content-start">
             <h6>{{text}}</h6>
+            <p class="text-denger" v-if="!userData.isLoggedin">*Please log in for appointment.</p>
             <table class="table" v-if="Object.entries(selectedDateInfo).length !== 0">
               <tbody>
-                <tr class="table-info">
+                <tr class="schedule-info">
                   <td>{{selectedDateInfo.day}}</td>
                   <td>{{selectedDateInfo.time}}</td>
                   <td>{{selectedDateInfo.hospital}}</td>
@@ -253,7 +254,7 @@ export default {
       medicalService:{},
       allDoctor:[],
       feedback:[],
-      userData:{name:"", isLoggedin:""},
+      userData:{name:" ", isLoggedin:""},
       date:new Date(),
       doctorId:"",
       doctorName:"",
@@ -265,6 +266,7 @@ export default {
       age:"",
       address:"",
       disease:"",
+      alertMgs:"",
     }
   },
   created(){
@@ -299,6 +301,9 @@ export default {
       })
     },
     getDoctorInfo(id,name){
+      this.date = new Date();
+      this.selectedDateInfo={};
+      this.text="";
       this.doctorId = id;
       this.doctorName = name;
     },
@@ -314,7 +319,9 @@ export default {
           console.log(res);
           if(res.status==200){
             this.text= res.data.mgs;
-            this.selectedDateInfo = res.data.data;
+            if(res.data.data){
+              this.selectedDateInfo = res.data.data;
+            }
           }
         }).catch(error=>{
           console.log(error);
@@ -339,19 +346,18 @@ export default {
       }
       this.$axios.post(url,data,{ headers: { Authorization: token } }).then(res=>{
         console.log(res);
-        if(res.status==200){
           const Toast = Swal.mixin({
             toast: true,
             position: 'bottom-end',
             showConfirmButton: false,
             timer: 3000,
             timerProgressBar: true,
-            
          })
           Toast.fire({
             icon: 'success',
             title: 'Successfull'
           })
+        if(res.status==200){
         }
       }).catch(error=>{
         console.log(error);

@@ -187,5 +187,20 @@ body{
     height: 72vh;
     width: 100%;
     margin-top: 80px;
-
+}
+.mx-calendar-content .cell.active,.mx-calendar-header{
+    background-color: #4B49AC!important;
+    color: white!important;
+}
+.mx-calendar-header .mx-btn,.mx-btn:hover{
+    color: white!important;
+    background-color: #4B49AC!important;
+}
+.mx-table-date .today {
+    color: #4B49AC!important;
+    font-weight: 600;
+}
+.schedule-info{
+    background-color:#4B49AC!important;
+    color: white!important;
 }
