@@ -93,16 +93,16 @@
         </div>
       </div>
     </section>
-    <section>
+    <section v-if="medicalService!={}">
       <div class="container">
         <div class="d-flex justify-content-between top-space w-100">
           <div class="medical-video">
             <img src="~/static/images/bitmap.png" alt="" style="width:100%;height:100%">
           </div>
           <div class="medical-text">
-            <h1 class="title">Personal care & healthy living</h1>
-            <p class="subtitle">Medicare gives you 24/7, all-in-one healthcare. We're here for you through sickness.</p>
-            <p class="discription">When you're feeling sick, Babylon gives you 24/7 access to care. When you're back on your feet, we give you the tools and advice to stay healthy.</p>
+            <h1 class="title">{{medicalService.title}}</h1>
+            <p class="subtitle">{{medicalService.subtitle}}</p>
+            <p class="discription">{{medicalService.description}}</p>
             <button class="btn bg-color bordered-round">Read More</button>
           </div>
         </div>
@@ -112,7 +112,7 @@
       <div class="container">
           <div class="row top-space">
             <div class="col-md-12">
-              <div class="row">
+              <div class="row" v-if="allDoctor.length>0">
                 <div class="col-md-3" v-for="(doctor,i) in allDoctor.slice(0,4)" :key="i">
                   <div class="doctor">
                       <div class="doctor-pic">
@@ -137,8 +137,8 @@
           <h1 class="text-center mb-5">Trusted by clinicians worldwide</h1>
           <div class="row">
             <div class="col-md-12">
-              <div class="row">
-                <div class="col-md-6">
+              <div class="row" v-if="feedback.length>0 ||feedback!=undefined">
+                <div class="col-md-6" v-for="(review,i) in feedback" :key="i">
                   <div class="feedback-wrapper">
                     <div class="quote-icon">
                       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#4B49AC" class="bi bi-quote" viewBox="0 0 16 16">
@@ -146,18 +146,18 @@
                       </svg>
                     </div>
                     <div class="feedback">
-                      <p>“Using Medicare has enabled me to grow my private practice and offer therapeutic services to clients throughout California. The technology is excellent and very user friendly. I would recommend Medicare to any practicing clinician.”</p>
+                      <p>{{review.feedback}}</p>
                     </div>
                     <div class="d-flex align-items-center">
                       <div class="user-img"></div>
                       <div class="ms-3">
-                        <h5 class="user-name">Ziad Abdul Bari</h5>
+                        <h5 class="user-name">{{review.user_name}}</h5>
                         <p class="possition">Dentist</p>
                       </div>
                     </div>
                   </div>
                 </div>
-                <div class="col-md-6">
+                <!-- <div class="col-md-6">
                   <div class="feedback-wrapper">
                     <div class="quote-icon">
                       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#4B49AC" class="bi bi-quote" viewBox="0 0 16 16">
@@ -175,7 +175,7 @@
                       </div>
                     </div>
                   </div>
-                </div>
+                </div> -->
               </div>
             </div>
           </div>
@@ -207,10 +207,6 @@
                   <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Age</label>
                     <input type="text" class="form-control" v-model="age" id="exampleInputEmail1" aria-describedby="emailHelp">
-                  </div>
-                  <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label">Address</label>
-                    <input type="text" class="form-control" v-model="address" id="exampleInputEmail1" aria-describedby="emailHelp">
                   </div>
                   <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Disease</label>
@@ -250,6 +246,7 @@ export default {
   data(){
     return{
       inline:true,
+      medicalService:{},
       coreService:[],
       medicalService:{},
       allDoctor:[],
@@ -264,7 +261,7 @@ export default {
       patientName:"",
       contact:"",
       age:"",
-      address:"",
+      // address:"",
       disease:"",
       alertMgs:"",
     }
@@ -279,8 +276,10 @@ export default {
         this.userData.isLoggedin = loggedin;
       }
     }
+    this.getFeedback();
     this.getCoreService();
     this.getDoctors();
+    this.getMedicalService();
   },
   methods:{
     getCoreService(){
@@ -297,6 +296,24 @@ export default {
       this.$axios.get(url).then(res=>{
         // console.log(res);
         this.allDoctor = res.data.allDoctor;
+      }).catch(error=>{
+        console.log(error);
+      })
+    },
+    getFeedback(){
+      const url = "aboutus/all-feedback";
+      this.$axios.get(url).then(res=>{
+        // console.log(res);
+        this.feedback = res.data.feedback;
+      }).catch(error=>{
+        console.log(error);
+      })
+    },
+    getMedicalService(){
+      const url = "home/medical-service";
+      this.$axios.get(url).then(res=>{
+        console.log(res);
+        this.medicalService = res.data.medicalService[0];
       }).catch(error=>{
         console.log(error);
       })
@@ -347,7 +364,7 @@ export default {
         chosen_date: this.date,
       }
       this.$axios.post(url,data,{ headers: { Authorization: token } }).then(res=>{
-        console.log(res);
+        // console.log(res);
           const Toast = Swal.mixin({
             toast: true,
             position: 'bottom-end',
