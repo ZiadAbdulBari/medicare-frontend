@@ -6,6 +6,7 @@
                     <a href="/">
                         <h2 class="text-center mb-5">Medicare.</h2>
                     </a>
+                    <p class="text-danger">{{nonActiveMgs}}</p>
                 </div>
                 <form>
                     <div class="mb-3">
@@ -33,6 +34,7 @@
             return{
                 email:"",
                 password:"",
+                nonActiveMgs:"",
             }
         },
         methods:{
@@ -45,6 +47,14 @@
                 }
                 this.$axios.post(url,data).then(res=>{
                     console.log(res);
+                    const Toast = Swal.mixin({
+                            toast: true,
+                            position: 'bottom-end',
+                            showConfirmButton: false,
+                            timer: 3000,
+                            timerProgressBar: true,
+                           
+                        })
                     if(res.status==200){
                         // this.userData = res.data.checkEmail[0]
                         if(process.browser){
@@ -52,29 +62,16 @@
                             window.localStorage.setItem('is_loggedin',"true");
                             window.localStorage.setItem('userData', JSON.stringify(res.data.checkEmail[0]));
                         }
-                        const Toast = Swal.mixin({
-                            toast: true,
-                            position: 'bottom-end',
-                            showConfirmButton: false,
-                            timer: 3000,
-                            timerProgressBar: true,
-                           
-                        })
                         Toast.fire({
                             icon: 'success',
                             title: 'Successfully Loggedin'
                         })
                         this.$router.push('/');
                     }
+                    else if (res.status==204){
+                        this.nonActiveMgs="Sorry! Your accoount is not active. You will be notified after activation"
+                    }
                     else{
-                        const Toast = Swal.mixin({
-                            toast: true,
-                            position: 'bottom-end',
-                            showConfirmButton: false,
-                            timer: 3000,
-                            timerProgressBar: true,
-                           
-                        })
                         Toast.fire({
                             icon: 'error',
                             title: 'Authorization Failed'

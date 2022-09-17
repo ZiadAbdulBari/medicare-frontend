@@ -1,19 +1,39 @@
 <template>
-  <div class="bootstrap-iso">
+  <div>
     <section>
-      <div class="d-flex align-items-center">
-        <div class="w-100 text-end">
-          <h1 class="banner-main-text">
-            Most Trusted<br> Health Partner
-          </h1>
-            <p>We're teaming up with impactful partners<br> large and small to transform the healthcare system.</p>
-            <button class=" btn bordered-round bg-color">Find Doctor</button>
+      <!-- Slider main container -->
+      <div class="swiper">
+  <!-- Additional required wrapper -->
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <div class="d-flex align-items-center">
+              <div class="w-100 text-end">
+                <h1 class="banner-main-text">
+                  Most Trusted<br> Health Partner
+                </h1>
+                  <p>We're teaming up with impactful partners<br> large and small to transform the healthcare system.</p>
+                  <button class=" btn bordered-round bg-color">Find Doctor</button>
+              </div>
+              <div class="me-auto">
+                  <img src="~/static/images/banner1.png" class="" alt="">
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="d-flex align-items-center">
+              <div class="w-100 text-end">
+                <h1 class="banner-main-text">
+                  Most Trusted<br> Health Partner
+                </h1>
+                  <p>We're teaming up with impactful partners<br> large and small to transform the healthcare system.</p>
+                  <button class=" btn bordered-round bg-color">Find Doctor</button>
+              </div>
+              <div class="me-auto">
+                  <img src="~/static/images/banner1.png" class="" alt="">
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="me-auto">
-            <img src="~/static/images/banner1.png" class="" alt="">
-        </div>
-      </div>
-      <div>
       </div>
     </section>
     <section class="common-bg-color">
@@ -312,7 +332,7 @@ export default {
     getMedicalService(){
       const url = "home/medical-service";
       this.$axios.get(url).then(res=>{
-        console.log(res);
+        // console.log(res);
         this.medicalService = res.data.medicalService[0];
       }).catch(error=>{
         console.log(error);
@@ -334,7 +354,7 @@ export default {
           date: this.date.toLocaleDateString()
         };
         this.$axios.post(url,data).then(res=>{
-          console.log(res);
+          // console.log(res);
           if(res.status==200){
             this.text= res.data.mgs;
             if(res.data.data){

@@ -12,16 +12,17 @@ export default {
       { name: 'format-detection', content: 'telephone=no' }
     ],
     link: [
-      // { rel: 'icon', type: 'image/x-icon', href: '/favicon.png' },
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.png' },
       { rel: 'stylesheet',  href: '/css/bootstrap.min.css' },
-      // { rel: 'stylesheet',  href: '/css/mc-calendar.min.css' },
+      { rel: 'stylesheet',  href: '/css/swiper-bundle.min.css' },
       { rel: 'stylesheet',  href: '/css/style.css' },
     ],
     script: [
       // { src: '/js/jquery-3.5.1.min.js', type: "text/javascript", body: true, ssr: false },
       { src: '/js/bootstrap.bundle.min.js',type: "text/javascript", body: true, ssr: false },
       { src: '/js/sweetalert2@11.js',type: "text/javascript", body: true, ssr: false },
-      // { src: '/js/mc-calendar.min.js',type: "text/javascript", body: true, ssr: false },
+      { src: '/js/swiper-bundle.min.js',type: "text/javascript", body: true, ssr: false },
+      { src: '/js/banner.js',type: "text/javascript", body: true, ssr: false },
     ]
   },
 
