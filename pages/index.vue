@@ -286,7 +286,6 @@ export default {
       medicalService:{},
       coreService:[],
       titleOfCoreService:[],
-      medicalService:{},
       allDoctor:[],
       feedback:[],
       userData:{name:" ",patient_id:"",isLoggedin:""},

@@ -7,7 +7,7 @@
                 <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
-                    <ul class="navbar-nav text-center">
+                    <ul class="navbar-nav text-center gap-4">
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="#">About</a>
                         </li>
