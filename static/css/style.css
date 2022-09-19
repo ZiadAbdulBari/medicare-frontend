@@ -21,6 +21,11 @@ label:focus,
 a,a:hover{
     text-decoration: none;
     color: #333333;
+    cursor: pointer;
+}
+.special-card{
+    background-color: #4B49AC;
+    color: white;
 }
 .bg-color{
     background-color: #4B49AC;
@@ -184,14 +189,15 @@ body{
 
 .profile-pic{
     height: 300px;
-    width: 80%;
+    width: 100%;
     background-color: #333333;
     border-radius: 10px;
 }
 .user-profile{
-    height: 72vh;
+    /* height: 72vh; */
     width: 100%;
-    margin-top: 80px;
+    margin: 80px 0;
+
 }
 .mx-calendar-content .cell.active,.mx-calendar-header{
     background-color: #4B49AC!important;
@@ -216,4 +222,11 @@ button:focus, button:active, button:hover, .btn:active, .btn.active {
     border-color: #4B49AC!important;
     -webkit-appearance: none;
     box-shadow: none !important;
+}
+.form-check-input:checked {
+    background-color: #4B49AC!important;
+    border-color: #4B49AC!important;
+}
+.form-check-input{
+    border-color: #4B49AC!important;
 }

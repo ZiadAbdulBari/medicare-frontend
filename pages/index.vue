@@ -1,4 +1,5 @@
 <template>
+<client-only>
   <div>
     <section>
       <!-- Slider main container -->
@@ -40,40 +41,54 @@
       <div class="container">
         <div class="content-wrapper">
           <div class="d-flex justify-content-between">
-            <div class="card" style="width: 18rem;">
+            <div class="card special-card" style="width: 18rem;">
               <div class="card-body">
-                <h5 class="card-title">Openning Hour</h5>
-                <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="card-link">Card link</a>
-                <a href="#" class="card-link">Another link</a>
+                <div class="d-flex justify-content-between mb-4">
+                  <h5 class="card-title" style="width:100px">Hotline 24/7</h5>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-headset" viewBox="0 0 16 16">
+                    <path d="M8 1a5 5 0 0 0-5 5v1h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a6 6 0 1 1 12 0v6a2.5 2.5 0 0 1-2.5 2.5H9.366a1 1 0 0 1-.866.5h-1a1 1 0 1 1 0-2h1a1 1 0 0 1 .866.5H11.5A1.5 1.5 0 0 0 13 12h-1a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1h1V6a5 5 0 0 0-5-5z"/>
+                  </svg>
+                </div>
+                <p class="card-text">We provide 24 hours hotline service for you. </p>
+               
               </div>
             </div>
             <div class="card" style="width: 18rem;">
               <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="card-link">Card link</a>
-                <a href="#" class="card-link">Another link</a>
+                <div class="d-flex justify-content-between mb-4">
+                  <h5 class="card-title" style="width:140px">Online Appointment</h5>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-calendar-plus" viewBox="0 0 16 16">
+                    <path d="M8 7a.5.5 0 0 1 .5.5V9H10a.5.5 0 0 1 0 1H8.5v1.5a.5.5 0 0 1-1 0V10H6a.5.5 0 0 1 0-1h1.5V7.5A.5.5 0 0 1 8 7z"/>
+                    <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
+                  </svg>
+                </div>
+                <p class="card-text">You can take appointment throug online and get real time notification.</p>
               </div>
             </div>
             <div class="card" style="width: 18rem;">
               <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="card-link">Card link</a>
-                <a href="#" class="card-link">Another link</a>
+                <div class="d-flex justify-content-between mb-4">
+                  <h5 class="card-title" style="width:140px">Online Prescription</h5>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-journal-plus" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M8 5.5a.5.5 0 0 1 .5.5v1.5H10a.5.5 0 0 1 0 1H8.5V10a.5.5 0 0 1-1 0V8.5H6a.5.5 0 0 1 0-1h1.5V6a.5.5 0 0 1 .5-.5z"/>
+                    <path d="M3 0h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-1h1v1a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v1H1V2a2 2 0 0 1 2-2z"/>
+                    <path d="M1 5v-.5a.5.5 0 0 1 1 0V5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0V8h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1z"/>
+                  </svg>
+                </div>
+                <p class="card-text">You do not need to bring prescription. We provide online prescription.</p>
+                
               </div>
             </div>
             <div class="card" style="width: 18rem;">
               <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="card-link">Card link</a>
-                <a href="#" class="card-link">Another link</a>
+                <div class="d-flex justify-content-between mb-4">
+                  <h5 class="card-title" style="width:140px">Fast Rert Delivery</h5>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-journals" viewBox="0 0 16 16">
+                    <path d="M5 0h8a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2 2 2 0 0 1-2 2H3a2 2 0 0 1-2-2h1a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1H1a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v9a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1H3a2 2 0 0 1 2-2z"/>
+                    <path d="M1 6v-.5a.5.5 0 0 1 1 0V6h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0V9h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 2.5v.5H.5a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1H2v-.5a.5.5 0 0 0-1 0z"/>
+                  </svg>
+                </div>  
+                <p class="card-text">We always try to deliver your report very fast.</p>
               </div>
             </div>
             
@@ -86,9 +101,9 @@
         <div class="content-wrapper">
           <p class="text-center">Service</p>
           <h1 class="text-center section-header">Our Medical Services</h1>
-          <div class="d-flex gap-2 align-items-start">
+          <div class="d-flex gap-2 align-items-start" v-if="coreService.length>0">
             <div class="nav nav-pills me-3 d-flex gap-2 align-content-between  flex-wrap service-tab justify-content-between" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-              <div class="nav-link tab-button d-flex align-items-center justify-content-center active" v-for="(service,i) in coreService" :key="i" :id="'v-pills-'+service.service_name+'-tab-'+i" data-bs-toggle="pill" :data-bs-target="'#v-pills-'+service.service_name+'-'+i" type="button" role="tab" :aria-controls="'v-pills-'+service.service_name+'-'+i" aria-selected="true">
+              <div class="nav-link tab-button d-flex align-items-center justify-content-center" v-for="(service,i) in coreService" :key="i" :id="'v-pills-'+service.service_name+'-tab-'+i" data-bs-toggle="pill" :data-bs-target="'#v-pills-'+service.service_name+'-'+i" type="button" role="tab" :aria-controls="'v-pills-'+service.service_name+'-'+i" aria-selected="true">
                 <div class="text-center">
                   <div class="tab-button-icon">
 
@@ -98,7 +113,7 @@
               </div>
             </div>
             <div class="tab-content tab-bg" id="v-pills-tabContent">
-              <div class="tab-pane fade show active" v-for="(service,i) in coreService" :key="i" :id="'v-pills-'+service.service_name+'-'+i" role="tabpanel" :aria-labelledby="'v-pills-'+service.service_name+'-tab-'+i" tabindex="0">
+              <div class="tab-pane fade active" :class="{'show':i===0}" v-for="(service,i) in coreService" :key="i" :id="'v-pills-'+service.service_name+'-'+i" role="tabpanel" :aria-labelledby="'v-pills-'+service.service_name+'-tab-'+i" tabindex="0">
                 <div class="tab-img">
                   <img src="~/static/images/service1.png" class="w-100" alt="">
                 </div>
@@ -257,6 +272,7 @@
       </div>
     </div>
   </div>
+</client-only>
 </template>
 
 <script>
@@ -265,9 +281,11 @@ export default {
   name: 'IndexPage',
   data(){
     return{
+      serviceName:"",
       inline:true,
       medicalService:{},
       coreService:[],
+      titleOfCoreService:[],
       medicalService:{},
       allDoctor:[],
       feedback:[],
@@ -285,6 +303,24 @@ export default {
       disease:"",
       alertMgs:"",
     }
+  },
+  mounted(){
+    this.$nextTick(() => {
+      const swiper = new Swiper('.swiper', {
+        // speed: 600,
+        slidesPerView: 1,
+        spaceBetween: 100,
+        loop:true,
+        autoplay: {
+          delay: 5000,
+        },
+      });
+      // console.log(swiper);
+      // swiper.slideNext();
+      swiper.init();
+      // const swiper = document.querySelector('.swiper').swiper;
+      // swiper.slideNext();
+    });
   },
   created(){
     if(process.browser){
@@ -307,6 +343,9 @@ export default {
       this.$axios.get(url).then(res=>{
         // console.log(res);
         this.coreService = res.data.coreService;
+        this.coreService.forEach(service=>{
+          this.titleOfCoreService.push(service.service_name);
+        })
       }).catch(error=>{
         console.log(error);
       })

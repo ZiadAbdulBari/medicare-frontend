@@ -22,7 +22,7 @@ export default {
       { src: '/js/bootstrap.bundle.min.js',type: "text/javascript", body: true, ssr: false },
       { src: '/js/sweetalert2@11.js',type: "text/javascript", body: true, ssr: false },
       { src: '/js/swiper-bundle.min.js',type: "text/javascript", body: true, ssr: false },
-      { src: '/js/banner.js',type: "text/javascript", body: true, ssr: false },
+      // { src: '/js/banner.js',type: "text/javascript", body: true, ssr: false },
     ]
   },
 

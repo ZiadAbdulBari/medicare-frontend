@@ -1,50 +1,52 @@
 <template>
-    <div class="col-md-8">
-        <form>
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="mb-3">
-                                <label for="exampleInputEmail1" class="form-label">Name</label>
-                                <input type="text" v-model="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    <client-only>
+        <div class="col-md-8">
+            <form>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label for="exampleInputEmail1" class="form-label">Name</label>
+                                    <input type="text" v-model="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label for="exampleInputPassword1" class="form-label">Email</label>
+                                    <input type="email" v-model="email" class="form-control" id="exampleInputPassword1" readonly>
+                                </div>
                             </div>
                         </div>
-                        <div class="col-md-6">
-                            <div class="mb-3">
-                                <label for="exampleInputPassword1" class="form-label">Email</label>
-                                <input type="email" v-model="email" class="form-control" id="exampleInputPassword1" readonly>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label for="exampleInputEmail1" class="form-label">Contact</label>
+                                    <input type="text" v-model="contact" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label for="exampleInputPassword1" class="form-label">Address</label>
+                                    <input type="text" v-model="address" class="form-control" id="exampleInputPassword1">
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="mb-3">
-                                <label for="exampleInputEmail1" class="form-label">Contact</label>
-                                <input type="text" v-model="contact" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label for="exampleInputEmail1" class="form-label">Age</label>
+                                    <input type="text" v-model="age" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                </div>
                             </div>
+                            
                         </div>
-                        <div class="col-md-6">
-                            <div class="mb-3">
-                                <label for="exampleInputPassword1" class="form-label">Address</label>
-                                <input type="text" v-model="address" class="form-control" id="exampleInputPassword1">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="mb-3">
-                                <label for="exampleInputEmail1" class="form-label">Age</label>
-                                <input type="text" v-model="age" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                            </div>
-                        </div>
-                        
                     </div>
                 </div>
-            </div>
-            <button type="submit" class="btn bg-color bordered-round mt-4" @click.prevent="updateProfile()">Update Profile</button>
-        </form>
-    </div>
+                <button type="submit" class="btn bg-color bordered-round mt-4" @click.prevent="updateProfile()">Update Profile</button>
+            </form>
+        </div>
+    </client-only>
 </template>
 
 <script>
