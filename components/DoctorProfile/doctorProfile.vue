@@ -49,6 +49,12 @@
                                             <input type="text" v-model="degree" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                                         </div>
                                     </div>
+                                    <div class="col-md-12">
+                                        <div class="mb-3">
+                                            <label for="formFile" class="form-label">Select Profile Picture</label>
+                                            <input class="form-control" type="file" id="formFile" >
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -308,49 +314,53 @@
         },
         methods:{
              updateProfile(){
+                let file = $("#formFile")[0].files[0];
+                let imageFiled = file;
+                if(file==undefined){
+                    imageFiled = "";
+                }
+                let formData = new FormData()
+                formData.append('name', this.name);
+                formData.append('email', this.email);
+                formData.append('contact', this.contact);
+                formData.append('NID', this.NID);
+                formData.append('sunday', this.sunday);
+                formData.append('sunday_time', this.sunday_time);
+                formData.append('sunday_hospital', this.sunday_hospital);
+                formData.append('sunday_patient', this.sunday_patient);
+                formData.append('monday', this.monday);
+                formData.append('monday_time', this.monday_time);
+                formData.append('monday_hospital', this.monday_hospital);
+                formData.append('monday_patient', this.monday_patient);
+                formData.append('tuesday', this.tuesday);
+                formData.append('tuesday_time', this.tuesday_time);
+                formData.append('tuesday_hospital', this.tuesday_hospital);
+                formData.append('tuesday_patient', this.tuesday_patient);
+                formData.append('wednesday', this.wednesday);
+                formData.append('wednesday_time', this.wednesday_time);
+                formData.append('wednesday_hospital', this.wednesday_hospital);
+                formData.append('wednesday_patient', this.wednesday_patient);
+                formData.append('thursday', this.thursday);
+                formData.append('thursday_time', this.thursday_time);
+                formData.append('thursday_hospital', this.thursday_hospital);
+                formData.append('thursday_patient', this.thursday_patient);
+                formData.append('friday', this.friday);
+                formData.append('friday_time', this.friday_time);
+                formData.append('friday_hospital', this.friday_hospital);
+                formData.append('friday_patient', this.friday_patient);
+                formData.append('saturday', this.saturday);
+                formData.append('saturday_time', this.saturday_time);
+                formData.append('saturday_hospital', this.saturday_hospital);
+                formData.append('saturday_patient', this.saturday_patient);
+                formData.append('work_at', this.work_at);
+                formData.append('speacialist_on', this.speacialist_on);
+                formData.append('degree', this.degree);
+                formData.append('profile_img', imageFiled);
+
                 const url = "user/edit-profile/"+this.id;
                 if(process.browser){
                     const token = window.localStorage.getItem('token');
-                    // console.log(token);
-                    let data = {
-                        name:this.name,
-                        email:this.email,
-                        contact:this.contact,
-                        NID:this.NID,
-                        sunday: this.sunday,
-                        sunday_time: this.sunday_time,
-                        sunday_hospital: this.sunday_hospital,
-                        sunday_patient: this.sunday_patient,
-                        monday:this.monday,
-                        monday_time:this.monday_time,
-                        monday_hospital:this.monday_hospital,
-                        monday_patient:this.monday_patient,
-                        tuesday:this.tuesday,
-                        tuesday_time:this.tuesday_time,
-                        tuesday_hospital:this.tuesday_hospital,
-                        tuesday_patient:this.tuesday_patient,
-                        wednesday:this.wednesday,
-                        wednesday_time:this.wednesday_time,
-                        wednesday_hospital:this.wednesday_hospital,
-                        wednesday_patient:this.wednesday_patient,
-                        thursday:this.thursday,
-                        thursday_time:this.thursday_time,
-                        thursday_hospital:this.thursday_hospital,
-                        thursday_patient:this.thursday_patient,
-                        friday:this.friday,
-                        friday_time:this.friday_time,
-                        friday_hospital:this.friday_hospital,
-                        friday_patient:this.friday_patient,
-                        saturday:this.saturday,
-                        saturday_time:this.saturday_time,
-                        saturday_hospital:this.saturday_hospital,
-                        saturday_patient:this.saturday_patient,
-                        work_at:this.work_at,
-                        speacialist_on:this.speacialist_on,
-                        degree:this.degree,
-                    }
-                    this.$axios.post(url, data, { headers: { Authorization: token } }).then(res=>{
-                        console.log(data);
+                    this.$axios.post(url, formData, { headers: { Authorization: token } }).then(res=>{
                         if(res.status==200){
                             const Toast = Swal.mixin({
                                 toast: true,

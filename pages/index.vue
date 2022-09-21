@@ -149,9 +149,10 @@
             <div class="col-md-12">
               <div class="row" v-if="allDoctor.length>0">
                 <div class="col-md-3" v-for="(doctor,i) in allDoctor.slice(0,4)" :key="i">
-                  <div class="doctor">
+                  <div class="doctor" v-if="doctor.is_activeted==true">
                       <div class="doctor-pic">
-                        <img src="" alt="">
+                        <img v-if="doctor.profile_img" :src="doctor.profile_img" alt="" style="width:100%; height:100%;object-fit: cover;">
+                        <img v-if="!doctor.profile_img" src="~/static/images/default_doctor_pro_pic.png" alt="" style="width:100%; height:100%;object-fit: cover;">
                       </div>
                       <div>
                         <h5 class="text-center mt-4">{{doctor.name}}</h5>
@@ -184,7 +185,9 @@
                       <p>{{review.feedback}}</p>
                     </div>
                     <div class="d-flex align-items-center">
-                      <div class="user-img"></div>
+                      <div class="user-img">
+                        
+                      </div>
                       <div class="ms-3">
                         <h5 class="user-name">{{review.user_name}}</h5>
                         <p class="possition">Dentist</p>

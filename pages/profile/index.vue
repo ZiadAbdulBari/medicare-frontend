@@ -6,7 +6,10 @@
                     <div class="col-md-12">
                         <div class="row">
                             <div class="col-md-3">
-                                <div class="profile-pic"></div>
+                                <div class="profile-pic">
+                                    <img v-if="data.profile_img" :src="data.profile_img" alt="" style="width:100%; height:100%;object-fit: cover;">
+                                    <img v-if="!data.profile_img" src="~/static/images/default_doctor_pro_pic.png" alt="" style="width:100%; height:100%;object-fit: cover;">
+                                </div>
                             </div>
                             <PatientProfile v-if="role=='patient'" :data="data"/>
                             <DoctorProfile v-if="role=='doctor'" :data="data"/>

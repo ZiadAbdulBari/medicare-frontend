@@ -73,6 +73,7 @@ body{
     background-color: #4B49AC;
     color: white;
     border-radius: 50%;
+    overflow: hidden;
 }
 .dropdown-item:hover{
     background-color: #4B49AC;
@@ -192,6 +193,8 @@ body{
     width: 100%;
     background-color: #333333;
     border-radius: 10px;
+    overflow:hidden;
+    
 }
 .user-profile{
     /* height: 72vh; */

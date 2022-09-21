@@ -1,5 +1,10 @@
 <template>
     <div>
+        <div class="alert alert-warning mb-0" role="alert" v-if="isActive">
+            <div class="container text-center">
+                Your account is not active. Please complete your profile to activete your account.
+            </div>
+        </div>
         <nav class="navbar navbar-expand-lg bg-light">
             <div class="container">
                 <nuxt-link class="navbar-brand" to="/"><img src="~/static/images/logo.png" alt=""></nuxt-link>
@@ -44,7 +49,7 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle after-login" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 <div class="header-pic me-2">
-                                    <img v-if="imageURL" :src="imageURL" alt="" width="100%">
+                                    <img v-if="imageURL" :src="imageURL" alt="" width="100%" style="object-fit:cover">
                                     <img v-if="!imageURL" src="~/static/images/user.png" alt="" width="100%">
                                 </div>
                                 <h6 class="me-1 mb-0">{{name}}</h6>
@@ -70,6 +75,7 @@
                 is_loggedin:'',
                 name:'',
                 imageURL:'',
+                isActive:'',
             }
         },
         created(){
@@ -77,7 +83,8 @@
                 this.is_loggedin = window.localStorage.getItem('is_loggedin');
                 const userData = JSON.parse(window.localStorage.getItem('userData'));
                 this.name = userData.name;
-                this.imageURL = userData.image;
+                this.imageURL = userData.profile_img;
+                this.isActive = userData.is_activeted;
                 // console.log(this.is_loggedin);
             }
         },
