@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="alert alert-warning mb-0" role="alert" v-if="isActive">
+        <div class="alert alert-warning mb-0" role="alert" v-if="isActive==false">
             <div class="container text-center">
                 Your account is not active. Please complete your profile to activete your account.
             </div>
@@ -75,7 +75,7 @@
                 is_loggedin:'',
                 name:'',
                 imageURL:'',
-                isActive:'',
+                isActive:false,
             }
         },
         created(){

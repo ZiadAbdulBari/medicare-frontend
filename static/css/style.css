@@ -143,6 +143,7 @@ body{
     background-color: #4B49AC;
     border-radius: 50%;
     margin: 0 auto;
+    overflow: hidden;
 }
 .doctor{
     background-color: #F7F6FE;

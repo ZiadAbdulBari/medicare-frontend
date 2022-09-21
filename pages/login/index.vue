@@ -68,9 +68,9 @@
                         })
                         this.$router.push('/');
                     }
-                    else if (res.status==204){
-                        this.nonActiveMgs="Sorry! Your accoount is not active. You will be notified after activation"
-                    }
+                    // else if (res.status==204){
+                    //     this.nonActiveMgs="Sorry! Your accoount is not active. You will be notified after activation"
+                    // }
                     else{
                         Toast.fire({
                             icon: 'error',
