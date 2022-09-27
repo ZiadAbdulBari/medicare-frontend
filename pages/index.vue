@@ -96,7 +96,7 @@
         </div>
       </div>
     </section>
-    <section class="common-bg-color d-none">
+    <section class="common-bg-color">
       <div class="container">
         <div class="content-wrapper">
           <p class="text-center">Service</p>
@@ -113,7 +113,7 @@
               </div>
             </div>
             <div class="tab-content tab-bg" id="v-pills-tabContent">
-              <div class="tab-pane fade active" :class="{'show':i===0}" v-for="(service,i) in coreService" :key="i" :id="'v-pills-'+service.service_name+'-'+i" role="tabpanel" :aria-labelledby="'v-pills-'+service.service_name+'-tab-'+i" tabindex="0">
+              <div class="tab-pane fade" :class="{'show active':i===0}" v-for="(service,i) in coreService" :key="i" :id="'v-pills-'+service.service_name+'-'+i" role="tabpanel" :aria-labelledby="'v-pills-'+service.service_name+'-tab-'+i" tabindex="0">
                 <div class="tab-img">
                   <img src="~/static/images/service1.png" class="w-100" alt="">
                 </div>
