@@ -265,7 +265,7 @@
                   <td>{{selectedDateInfo.time}}</td>
                   <td>{{selectedDateInfo.hospital}}</td>
                   <td v-if="userData.isLoggedin==true">
-                    <button type="button" class="bg-color bordered-round" @click.prevent="dateConfirm=true">Confirm</button>
+                    <button type="button" class="btn-sm bg-color bordered-round" @click.prevent="dateConfirm=true">Confirm</button>
                   </td>
                 </tr>
               </tbody>

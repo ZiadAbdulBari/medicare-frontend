@@ -1,10 +1,10 @@
 <template>
     <div>
-        <div class="alert alert-warning mb-0" role="alert" v-if="isActive==false">
+        <!-- <div class="alert alert-warning mb-0" role="alert" v-if="isActive==false">
             <div class="container text-center">
                 Your account is not active. Please complete your profile to activete your account.
             </div>
-        </div>
+        </div> -->
         <nav class="navbar navbar-expand-lg bg-light">
             <div class="container">
                 <nuxt-link class="navbar-brand" to="/"><img src="~/static/images/logo.png" alt=""></nuxt-link>
@@ -32,7 +32,7 @@
                 </div>
                 <div>
                     
-                    <div class="d-flex" v-if="is_loggedin=='false'">
+                    <div class="d-flex" v-if="is_loggedin===false || is_loggedin==='false'">
                         <div class="dropdown">
                             <a class="btn btn bg-color bordered-round dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Registration
@@ -45,7 +45,7 @@
                         </div>
                         <nuxt-link to="/login" class="btn bordered bordered-round ms-3">Login</nuxt-link>
                     </div>
-                    <ul class="navbar-nav" v-if="is_loggedin=='true'">
+                    <ul class="navbar-nav" v-if="is_loggedin===true || is_loggedin==='true'">
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle after-login" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 <div class="header-pic me-2">
@@ -72,19 +72,24 @@
     export default {
         data(){
             return{
-                is_loggedin:'',
+                is_loggedin: false,
                 name:'',
                 imageURL:'',
-                isActive:false,
+                isActive: false,
             }
         },
         created(){
             if(process.browser){
-                this.is_loggedin = window.localStorage.getItem('is_loggedin');
                 const userData = JSON.parse(window.localStorage.getItem('userData'));
-                this.name = userData.name;
-                this.imageURL = userData.profile_img;
-                this.isActive = userData.is_activeted;
+                if(window.localStorage.getItem('is_loggedin')!=null){
+                    this.is_loggedin =JSON.parse(window.localStorage.getItem('is_loggedin'));
+                }
+                if(userData!=null){
+                    this.name = userData.name;
+                    this.imageURL = userData.profile_img;
+                    this.isActive = userData.is_activeted;
+                }
+                
                 // console.log(this.is_loggedin);
             }
         },
