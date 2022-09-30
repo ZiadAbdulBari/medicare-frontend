@@ -157,7 +157,7 @@
                       <div>
                         <h5 class="text-center mt-4">{{doctor.name}}</h5>
                         <p class="text-center mt-2 mb-3">{{doctor.speacialist_on}}</p>
-                        <button class="btn btn-sm bg-color bordered-round" data-bs-toggle="modal" data-bs-target="#exampleModal" @click.prevent="getDoctorInfo(doctor._id,doctor.name)">Appointment</button>
+                        <button class="btn btn-sm bg-color bordered-round" data-bs-toggle="modal" data-bs-target="#exampleModal" @click.prevent="getDoctorInfo(doctor._id,doctor.name,doctor.speacialist_on)">Appointment</button>
                       </div>
                   </div>
                 </div>
@@ -295,6 +295,7 @@ export default {
       date:new Date(),
       doctorId:"",
       doctorName:"",
+      speacialist_on:"",
       text:"",
       selectedDateInfo:{},
       dateConfirm:false,
@@ -379,12 +380,13 @@ export default {
         console.log(error);
       })
     },
-    getDoctorInfo(id,name){
+    getDoctorInfo(id,name,speacialist_on){
       this.date = new Date();
       this.selectedDateInfo={};
       this.text="";
       this.doctorId = id;
       this.doctorName = name;
+      this.speacialist_on = speacialist_on;
     },
     checkDoctorSchedule(){
       this.selectedDateInfo={};
@@ -418,6 +420,7 @@ export default {
         patient_id: this.userData.patient_id,
         doctor_name: this.doctorName,
         doctor_id: this.doctorId,
+        specialished_on:this.speacialist_on,
         patient_name: this.patientName,
         contact: this.contact,
         age: this.age,

@@ -40,7 +40,19 @@
                                     <div class="col-md-12">
                                         <div class="mb-3">
                                             <label for="exampleInputEmail1" class="form-label">Specialist On</label>
-                                            <input type="text" v-model="speacialist_on" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                            <!-- <input type="text" v-model="speacialist_on" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"> -->
+                                            <select class="form-select" v-model="speacialist_on">
+                                                <!-- <option value="">Select Your Department</option> -->
+                                                <option>Allergists</option>
+                                                <option>Dermatologists</option>
+                                                <option>Cardiologists</option>
+                                                <option>Endocrinologists</option>
+                                                <option>Nephrologists</option>
+                                                <option>Urologists</option>
+                                                <option>Neurologists</option>
+                                                <option>Orthopedic surgeons</option>
+                                                <option>Cardiac surgeons</option>
+                                            </select>
                                         </div>
                                     </div>
                                     <div class="col-md-12">

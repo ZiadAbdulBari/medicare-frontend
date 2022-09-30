@@ -1,6 +1,7 @@
 <template>
     <client-only>
         <div class="container">
+            <date-picker :inline="inline" v-model="date" @change="getHistory()"></date-picker>
             <table class="table mt-5">
                 <thead>
                     <tr>
@@ -42,15 +43,19 @@
 </template>
 
 <script>
+    import 'vue2-datepicker/index.css';
     export default {
         name:"DoctorHistory",
         data(){
             return{
+                inline:false,
                 id:"",
                 role:"",
                 isLoggedin:"",
                 status:"",
+                date:new Date(),
                 history:[],
+                URL:''
             }
         },
         created(){
@@ -67,9 +72,9 @@
         },
         methods:{
             getHistory(){
-                // console.log(new Date().toLocaleDateString());
-                // return;
-                const url = 'doctor/get-appointment/'+this.id+'?date='+new Date().toLocaleDateString();
+                console.log('hello');
+                const url = 'doctor/get-appointment/'+this.id+'?date='+this.date.toLocaleDateString();
+                this.URL=url;
                 let token="";
                 if(process.browser){
                     token = window.localStorage.getItem(token);
