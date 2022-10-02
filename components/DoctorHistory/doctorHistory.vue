@@ -1,43 +1,54 @@
 <template>
     <client-only>
-        <div class="container">
-            <date-picker :inline="inline" v-model="date" @change="getHistory()"></date-picker>
-            <table class="table mt-5">
-                <thead>
-                    <tr>
-                    <th scope="col">SL</th>
-                    <th scope="col">Patient Name</th>
-                    <th scope="col">Age</th>
-                    <th scope="col">Problem</th>
-                    <th scope="col">Checkup Time</th>
-                    <th scope="col">Status</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr v-if="history.length>0" v-for="(record,i) in history" :key="i">
-                        <th scope="row">{{i+1}}</th>
-                        <td>{{record.patient_name}}</td>
-                        <td>{{record.age}}</td>
-                        <td>{{record.disease}}</td>
-                        <td>{{record.chosen_date}}</td>
-                        <td>
-                            {{record.status}}
-                            <!-- <div class="form-check">
-                                <input class="form-check-input" v-model="status" type="radio" value='Pandding' id="pandding" @change="changeStatus(record._id)" :checked="{'true': record.status==='Pandding'}">
-                                <label class="form-check-label" for="pandding">
-                                    Pandding
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" v-model="status" type="radio" value="Cancel" id="cancel" @change="changeStatus(record._id)" :checked="{'true':record.status==='Cancel'}">
-                                <label class="form-check-label" for="cancel">
-                                    Cancel
-                                </label>
-                            </div> -->
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+        <div class="content-body">
+            <div class="container">
+                <date-picker :inline="inline" v-model="date" @change="getHistory()"></date-picker>
+                <table class="table mt-5">
+                    <thead>
+                        <tr>
+                        <th scope="col">SL</th>
+                        <th scope="col">Patient Name</th>
+                        <th scope="col">Age</th>
+                        <th scope="col">Problem</th>
+                        <th scope="col">Checkup Time</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-if="history.length>0" v-for="(record,i) in history" :key="i">
+                            <th scope="row">{{i+1}}</th>
+                            <td>{{record.patient_name}}</td>
+                            <td>{{record.age}}</td>
+                            <td>{{record.disease}}</td>
+                            <td>{{record.chosen_date}}</td>
+                            <td>
+                                {{record.status}}
+                                <!-- <div class="form-check">
+                                    <input class="form-check-input" v-model="status" type="radio" value='Pandding' id="pandding" @change="changeStatus(record._id)" :checked="{'true': record.status==='Pandding'}">
+                                    <label class="form-check-label" for="pandding">
+                                        Pandding
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" v-model="status" type="radio" value="Cancel" id="cancel" @change="changeStatus(record._id)" :checked="{'true':record.status==='Cancel'}">
+                                    <label class="form-check-label" for="cancel">
+                                        Cancel
+                                    </label>
+                                </div> -->
+                            </td>
+                            <td>
+                                <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                                    <button type="button" class="btn btn-warning" @click="changeStatus(record.doctor_id,record.patient_id,'Calling')">Calling</button>
+                                    <button type="button" class="btn btn-success" @click="changeStatus(record.doctor_id,record.patient_id,'Checking')">Checking</button>
+                                    <button type="button" class="btn btn-success" @click="changeStatus(record.doctor_id,record.patient_id,'Complete')">Complete</button>
+                                    <button type="button" class="btn btn-danger" @click="changeStatus(record.doctor_id,record.patient_id,'Cancel')">Cancel</button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </client-only>
 </template>
@@ -86,22 +97,21 @@
                     console.log(error);
                 })
             },
-            changeStatus(id){
-                const url = 'doctor/edit-status/'+id;
-                console.log(this.status);
+            changeStatus(doctorId,patientId,status){
+                // console.log(doctorId,patientId);
+                const url = `doctor/change-status/${doctorId}?patient_id=${patientId}`;
                 let token="";
                 // return;
                 if(process.browser){
                     token = window.localStorage.getItem('token');
                 }
-                let data={
-                    status:this.status,
+                const data={
+                    status:status
                 }
-                console.log(data);
-                // return;
+                // console.log(token);
                 this.$axios.post(url,data,{ headers: { Authorization: token } }).then(res=>{
                     console.log(res);
-                    this.history = res.data.data;
+                    // this.history = res.data.data;
                 }).catch(error=>{
                     console.log(error);
                 })
@@ -110,6 +120,11 @@
     }
 </script>
 
-<style lang="scss" scoped>
-
+<style scoped>
+/* .content-body{
+    height: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+} */
 </style>
