@@ -10,7 +10,7 @@
                         <th scope="col">Patient Name</th>
                         <th scope="col">Age</th>
                         <th scope="col">Problem</th>
-                        <th scope="col">Checkup Time</th>
+                        <th scope="col">Checkup Date</th>
                         <th scope="col">Status</th>
                         <th scope="col">Action</th>
                         </tr>
@@ -21,7 +21,7 @@
                             <td>{{record.patient_name}}</td>
                             <td>{{record.age}}</td>
                             <td>{{record.disease}}</td>
-                            <td>{{record.chosen_date}}</td>
+                            <td>{{new Date(record.chosen_date).toLocaleDateString()}}</td>
                             <td>
                                 {{record.status}}
                                 <!-- <div class="form-check">
@@ -37,10 +37,10 @@
                                     </label>
                                 </div> -->
                             </td>
-                            <td>
+                            <td v-if="new Date(record.chosen_date).toLocaleDateString()==today.toLocaleDateString()">
                                 <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-                                    <button type="button" class="btn btn-warning" @click="changeStatus(record.doctor_id,record.patient_id,'Calling')">Calling</button>
-                                    <button type="button" class="btn btn-success" @click="changeStatus(record.doctor_id,record.patient_id,'Checking')">Checking</button>
+                                    <button type="button" class="btn btn-success d-none" @click="changeStatus(record.doctor_id,record.patient_id,'Checking')">Checking</button>
+                                    <button type="button" class="btn btn-warning d-none" @click="changeStatus(record.doctor_id,record.patient_id,'Calling')">Calling</button>
                                     <button type="button" class="btn btn-success" @click="changeStatus(record.doctor_id,record.patient_id,'Complete')">Complete</button>
                                     <button type="button" class="btn btn-danger" @click="changeStatus(record.doctor_id,record.patient_id,'Cancel')">Cancel</button>
                                 </div>
@@ -66,7 +66,8 @@
                 status:"",
                 date:new Date(),
                 history:[],
-                URL:''
+                URL:'',
+                today:new Date(),
             }
         },
         created(){
