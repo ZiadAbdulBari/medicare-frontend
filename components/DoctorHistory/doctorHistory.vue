@@ -24,18 +24,6 @@
                             <td>{{new Date(record.chosen_date).toLocaleDateString()}}</td>
                             <td>
                                 {{record.status}}
-                                <!-- <div class="form-check">
-                                    <input class="form-check-input" v-model="status" type="radio" value='Pandding' id="pandding" @change="changeStatus(record._id)" :checked="{'true': record.status==='Pandding'}">
-                                    <label class="form-check-label" for="pandding">
-                                        Pandding
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" v-model="status" type="radio" value="Cancel" id="cancel" @change="changeStatus(record._id)" :checked="{'true':record.status==='Cancel'}">
-                                    <label class="form-check-label" for="cancel">
-                                        Cancel
-                                    </label>
-                                </div> -->
                             </td>
                             <td v-if="new Date(record.chosen_date).toLocaleDateString()==today.toLocaleDateString()">
                                 <div class="btn-group" role="group" aria-label="Basic mixed styles example">
