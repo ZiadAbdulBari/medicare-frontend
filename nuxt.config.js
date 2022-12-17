@@ -47,7 +47,7 @@ export default {
     '@nuxtjs/axios',
   ],
   axios: {
-    baseURL : "http://localhost:4000/"
+    baseURL : "https://dashboard.render.com/"
   },
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
