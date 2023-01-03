@@ -33,16 +33,16 @@
                 <div>
                     
                     <div class="d-flex" v-if="is_loggedin===false || is_loggedin==='false'">
-                        <div class="dropdown">
+                        <!-- <div class="dropdown">
                             <a class="btn btn bg-color bordered-round dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Registration
                             </a>
 
                             <ul class="dropdown-menu">
-                                <li><nuxt-link to="/registration/doctor" class="dropdown-item" href="#">Registration As A Doctor</nuxt-link></li>
-                                <li><nuxt-link to="/registration/patient" class="dropdown-item" href="#">Registration As A Patient</nuxt-link></li>
+                                <li><nuxt-link to="/registration/patient" class="dropdown-item" href="#">Registration</nuxt-link></li>
                             </ul>
-                        </div>
+                        </div> -->
+                        <nuxt-link to="/registration" class="btn btn bg-color bordered-round">Registration</nuxt-link>
                         <nuxt-link to="/login" class="btn bordered bordered-round ms-3">Login</nuxt-link>
                     </div>
                     <ul class="navbar-nav" v-if="is_loggedin===true || is_loggedin==='true'">
