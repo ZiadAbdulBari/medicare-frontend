@@ -47,7 +47,7 @@ export default {
     '@nuxtjs/axios',
   ],
   axios: {
-    baseURL : "https://dashboard.render.com/"
+    baseURL : "https://hellodoctor.onrender.com/api/"
   },
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {

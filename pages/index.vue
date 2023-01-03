@@ -147,8 +147,8 @@
       <div class="container">
           <div class="row top-space">
             <div class="col-md-12">
-              <div class="row" v-if="allDoctor.length>0">
-                <div class="col-md-3" v-for="(doctor,i) in allDoctor.slice(0,4)" :key="i">
+              <div class="row" v-if="doctors.length>0 || doctors!=undefined">
+                <div class="col-md-3" v-for="(doctor,i) in doctors.slice(0,4)" :key="i">
                   <div class="doctor" v-if="doctor.is_activeted==true">
                       <div class="doctor-pic">
                         <img v-if="doctor.profile_img" :src="doctor.profile_img" alt="" style="width:100%; height:100%;object-fit: cover;">
@@ -258,7 +258,8 @@
           <div class="modal-footer justify-content-start">
             <h6>{{text}}</h6>
             <p class="text-denger" v-if="!userData.isLoggedin">*Please log in for appointment.</p>
-            <table class="table" v-if="Object.entries(selectedDateInfo).length !== 0">
+            <table class="table" v-if="selectedDateInfo!={}">
+              <!-- Object.entries(selectedDateInfo).length !== 0  -->
               <tbody>
                 <tr class="schedule-info">
                   <td>{{selectedDateInfo.day}}</td>
@@ -284,12 +285,13 @@ export default {
   name: 'IndexPage',
   data(){
     return{
+      banner:[],
       serviceName:"",
       inline:true,
       medicalService:{},
       coreService:[],
       titleOfCoreService:[],
-      allDoctor:[],
+      doctors:[],
       feedback:[],
       userData:{name:" ",patient_id:"",isLoggedin:""},
       date:new Date(),
@@ -335,47 +337,55 @@ export default {
         this.userData.isLoggedin = loggedin;
       }
     }
-    this.getFeedback();
+    this.getBanner();
     this.getCoreService();
     this.getDoctors();
     this.getMedicalService();
   },
   methods:{
+    getBanner(){
+      const url = "homepage/banner";
+      this.$axios.get(url).then(response=>{
+        console.log(response);
+        if(response.status==200){
+          this.banner = response.data.allBanner;
+        }
+      }).catch(error=>{
+        console.log(error);
+      })
+    },
     getCoreService(){
-      const url = "home/all-core-service";
-      this.$axios.get(url).then(res=>{
-        // console.log(res);
-        this.coreService = res.data.coreService;
-        this.coreService.forEach(service=>{
-          this.titleOfCoreService.push(service.service_name);
-        })
-      }).catch(error=>{
-        console.log(error);
-      })
-    },
-    getDoctors(){
-      const url = "home/all-doctor/doctor";
-      this.$axios.get(url).then(res=>{
-        // console.log(res);
-        this.allDoctor = res.data.allDoctor;
-      }).catch(error=>{
-        console.log(error);
-      })
-    },
-    getFeedback(){
-      const url = "aboutus/all-feedback";
-      this.$axios.get(url).then(res=>{
-        // console.log(res);
-        this.feedback = res.data.feedback;
+      const url = "homepage/core-service";
+      this.$axios.get(url).then(response=>{
+        console.log(response);
+        if(response.status==200){
+          this.coreService = response.data.coreService;
+        }
+        // this.coreService.forEach(service=>{
+        //   this.titleOfCoreService.push(service.service_name);
+        // })
       }).catch(error=>{
         console.log(error);
       })
     },
     getMedicalService(){
-      const url = "home/medical-service";
-      this.$axios.get(url).then(res=>{
-        // console.log(res);
-        this.medicalService = res.data.medicalService[0];
+      const url = "homepage/medical-service";
+      this.$axios.get(url).then(response=>{
+        console.log(response);
+        if(response.status==200){{
+          this.medicalService = response.data.medicalService;
+        }}
+      }).catch(error=>{
+        console.log(error);
+      })
+    },
+    getDoctors(){
+      const url = "homepage/doctor";
+      this.$axios.get(url).then(response=>{
+        console.log(response);
+        if(response.status==200){
+          this.doctors = response.data.doctor;
+        }
       }).catch(error=>{
         console.log(error);
       })
