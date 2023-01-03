@@ -346,7 +346,7 @@ export default {
     getBanner(){
       const url = "homepage/banner";
       this.$axios.get(url).then(response=>{
-        console.log(response);
+        // console.log(response);
         if(response.status==200){
           this.banner = response.data.allBanner;
         }
@@ -357,7 +357,7 @@ export default {
     getCoreService(){
       const url = "homepage/core-service";
       this.$axios.get(url).then(response=>{
-        console.log(response);
+        // console.log(response);
         if(response.status==200){
           this.coreService = response.data.coreService;
         }
@@ -371,7 +371,7 @@ export default {
     getMedicalService(){
       const url = "homepage/medical-service";
       this.$axios.get(url).then(response=>{
-        console.log(response);
+        // console.log(response);
         if(response.status==200){{
           this.medicalService = response.data.medicalService;
         }}
@@ -382,7 +382,7 @@ export default {
     getDoctors(){
       const url = "homepage/doctor";
       this.$axios.get(url).then(response=>{
-        console.log(response);
+        // console.log(response);
         if(response.status==200){
           this.doctors = response.data.doctor;
         }
