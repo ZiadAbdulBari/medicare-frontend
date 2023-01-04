@@ -257,16 +257,16 @@
           </div>
           <div class="modal-footer justify-content-start">
             <h6>{{text}}</h6>
-            <p class="text-denger" v-if="!userData.isLoggedin">*Please log in for appointment.</p>
-            <table class="table" v-if="selectedDateInfo!={}">
+            <p class="text-denger" v-if="!isLoggedin">*Please log in for appointment.</p>
+            <table class="table" v-if="Object.entries(selectedDateInfo).length !== 0">
               <!-- Object.entries(selectedDateInfo).length !== 0  -->
               <tbody>
                 <tr class="schedule-info">
                   <td>{{selectedDateInfo.day}}</td>
                   <td>{{selectedDateInfo.time}}</td>
                   <td>{{selectedDateInfo.hospital}}</td>
-                  <td v-if="userData.isLoggedin==true">
-                    <button type="button" class="btn-sm bg-color bordered-round" @click.prevent="dateConfirm=true">Confirm</button>
+                  <td v-if="isLoggedin">
+                    <button type="button" class="btn-sm bg-color bordered-round special-button" @click.prevent="dateConfirm=true">Confirm</button>
                   </td>
                 </tr>
               </tbody>
@@ -307,6 +307,11 @@ export default {
       // address:"",
       disease:"",
       alertMgs:"",
+    }
+  },
+  computed:{
+    isLoggedin(){
+      return this.$store.state.isLoggedin;
     }
   },
   mounted(){
@@ -402,7 +407,7 @@ export default {
       this.selectedDateInfo={};
       this.text="";
       if(process.browser){
-        let url = 'doctor/schedule-check/'+this.doctorId;
+        let url = 'doctor/appointment/schedule-check/'+this.doctorId;
         let data = {
           date: this.date.toLocaleDateString()
         };
@@ -420,7 +425,7 @@ export default {
       }
     },
     cerateAppointment(){
-      const url = 'doctor/appointment';
+      const url = 'doctor/appointment/make-appointment';
       let token="";
       if(process.browser){
         token = window.localStorage.getItem(token);
