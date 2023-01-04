@@ -7,8 +7,8 @@
                         <div class="row">
                             <div class="col-md-3">
                                 <div class="profile-pic">
-                                    <img v-if="data.profile_img" :src="data.profile_img" alt="" style="width:100%; height:100%;object-fit: cover;">
-                                    <img v-if="!data.profile_img" src="~/static/images/default_doctor_pro_pic.png" alt="" style="width:100%; height:100%;object-fit: cover;">
+                                    <img v-if="data.profile_img" :src="data.profile_img" alt="" style="width:100%; height:100%;object-fit: cover; margin-top:10px">
+                                    <img v-if="!data.profile_img" src="~/static/images/default_doctor_pro_pic.png" alt="" style="width:100%; height:100%;object-fit: cover;margin-top:10px">
                                 </div>
                             </div>
                             <PatientProfile v-if="role=='patient'" :data="data"/>
@@ -39,29 +39,28 @@
             }
         },
         created(){
+            this.$store.dispatch('authenticationInfo');
             this.getProfileData();
         },
         methods:{
             getProfileData(){
                 let url = "user/profile/";
-                if(process.browser){
-                    const token = window.localStorage.getItem('token');
-                    this.$axios.get(url,{ headers: { Authorization: token } }).then(res=>{
-                        // console.log(res);
-                        if(res.status==200){
-                            this.data = res.data.profileData[0];
-                            this.id = res.data.profileData[0]._id;
-                            this.role = res.data.profileData[0].role;
-                            // this.name = res.data.profileData[0].name;
-                            // this.email = res.data.profileData[0].email;
-                            // this.contact = res.data.profileData[0].contact;
-                            // this.address = res.data.profileData[0].address;
-                            // this.age = res.data.profileData[0].age;
-                        }
-                    }).catch(err => {
-                        console.log(err);
-                    })
-                }
+                let token = this.$store.state.token;
+                this.$axios.get(url,{ headers: { Authorization: token } }).then(res=>{
+                    // console.log(res);
+                    if(res.status==200){
+                        this.data = res.data.profileData;
+                        this.id = res.data.profileData._id;
+                        this.role = res.data.profileData.role;
+                        // this.name = res.data.profileData[0].name;
+                        // this.email = res.data.profileData[0].email;
+                        // this.contact = res.data.profileData[0].contact;
+                        // this.address = res.data.profileData[0].address;
+                        // this.age = res.data.profileData[0].age;
+                    }
+                }).catch(err => {
+                    console.log(err);
+                })
             },
         }
     }

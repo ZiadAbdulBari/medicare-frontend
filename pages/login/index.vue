@@ -53,13 +53,14 @@
                            
                         })
                     if(res.status==200){
-                        let token = JSON.stringify(res.data.access_token);
-                        let isLoggedin = JSON.stringify(true);
+                        let token = res.data.access_token;
+                        let isLoggedin = true;
                         if(process.browser){
-                            window.localStorage.setItem('token', token);
-                            window.localStorage.setItem('isLoggedin', isLoggedin);
+                            localStorage.setItem('token', JSON.stringify(token));
+                            localStorage.setItem('isLoggedin', JSON.stringify(isLoggedin));
                         }
                         this.$store.dispatch('authenticationInfo');
+                        this.$store.dispatch('profileData');
                         Toast.fire({
                             icon: 'success',
                             title: 'Successfully Loggedin'

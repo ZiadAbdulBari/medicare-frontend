@@ -431,8 +431,8 @@ export default {
         token = window.localStorage.getItem(token);
       }
       const data={
-        user_name: this.userData.name,
-        patient_id: this.userData.patient_id,
+        user_name: this.$store.state.profileName,
+        patient_id: this.$store.state.id,
         doctor_name: this.doctorName,
         doctor_id: this.doctorId,
         specialished_on:this.speacialist_on,

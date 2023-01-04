@@ -87,6 +87,9 @@
         },
         created(){
             this.$store.dispatch('authenticationInfo');
+            if(this.$store.state.isLoggedin){
+                this.$store.dispatch('profileData');
+            }
         },
         methods:{
             logout(){

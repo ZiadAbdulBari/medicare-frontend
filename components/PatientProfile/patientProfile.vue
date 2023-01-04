@@ -94,49 +94,39 @@
                 formData.append('age', this.age);
                 formData.append('profile_img', imageFiled);
 
-                const url = "user/edit-profile/"+this.id;
-                if(process.browser){
-                    const token = window.localStorage.getItem('token');
-                    // console.log(token);
-                    // let data = {
-                    //     name:this.name,
-                    //     email:this.email,
-                    //     contact:this.contact,
-                    //     address:this.address,
-                    //     age:this.age
-                    // }
-                    this.$axios.post(url, formData, { headers: { Authorization: token } }).then(res=>{
-                        console.log(res);
-                        if(res.status==200){
-                            const Toast = Swal.mixin({
-                                toast: true,
-                                position: 'bottom-end',
-                                showConfirmButton: false,
-                                timer: 3000,
-                                timerProgressBar: true,
-                            })
-                            Toast.fire({
-                                icon: 'success',
-                                title: 'Profile Update Seccessfull'
-                            })
-                        }
-                        else{
-                            const Toast = Swal.mixin({
-                                toast: true,
-                                position: 'bottom-end',
-                                showConfirmButton: false,
-                                timer: 3000,
-                                timerProgressBar: true,
-                            })
-                            Toast.fire({
-                                icon: 'error',
-                                title: 'Profile Update Failed'
-                            })
-                        }
-                    }).catch(err => {
-                        console.log(err);
-                    })
-                }
+                let url = "user/edit-profile";
+                let token = this.$store.state.token;
+                this.$axios.post(url, formData, { headers: { Authorization: token } }).then(res=>{
+                    console.log(res);
+                    if(res.status==200){
+                        const Toast = Swal.mixin({
+                            toast: true,
+                            position: 'bottom-end',
+                            showConfirmButton: false,
+                            timer: 3000,
+                            timerProgressBar: true,
+                        })
+                        Toast.fire({
+                            icon: 'success',
+                            title: 'Profile Update Seccessfull.'
+                        })
+                    }
+                    else{
+                        const Toast = Swal.mixin({
+                            toast: true,
+                            position: 'bottom-end',
+                            showConfirmButton: false,
+                            timer: 3000,
+                            timerProgressBar: true,
+                        })
+                        Toast.fire({
+                            icon: 'error',
+                            title: 'Profile Update Failed'
+                        })
+                    }
+                }).catch(err => {
+                    console.log(err);
+                })
             }
         }
     }
