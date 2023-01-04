@@ -45,7 +45,7 @@
               <div class="card-body">
                 <div class="d-flex justify-content-between mb-4">
                   <h5 class="card-title" style="width:100px">Hotline 24/7</h5>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-headset" viewBox="0 0 16 16">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="#004aad" class="bi bi-headset" viewBox="0 0 16 16">
                     <path d="M8 1a5 5 0 0 0-5 5v1h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a6 6 0 1 1 12 0v6a2.5 2.5 0 0 1-2.5 2.5H9.366a1 1 0 0 1-.866.5h-1a1 1 0 1 1 0-2h1a1 1 0 0 1 .866.5H11.5A1.5 1.5 0 0 0 13 12h-1a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1h1V6a5 5 0 0 0-5-5z"/>
                   </svg>
                 </div>
@@ -56,39 +56,39 @@
             <div class="card" style="width: 18rem;">
               <div class="card-body">
                 <div class="d-flex justify-content-between mb-4">
-                  <h5 class="card-title" style="width:140px">Online Appointment</h5>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-calendar-plus" viewBox="0 0 16 16">
+                  <h5 class="card-title special-text" style="width:140px">Online Appointment</h5>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="#ff5757" class="bi bi-calendar-plus" viewBox="0 0 16 16">
                     <path d="M8 7a.5.5 0 0 1 .5.5V9H10a.5.5 0 0 1 0 1H8.5v1.5a.5.5 0 0 1-1 0V10H6a.5.5 0 0 1 0-1h1.5V7.5A.5.5 0 0 1 8 7z"/>
                     <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
                   </svg>
                 </div>
-                <p class="card-text">You can take appointment throug online and get real time notification.</p>
+                <p class="card-text special-text">You can take appointment throug online and get real time notification.</p>
               </div>
             </div>
             <div class="card" style="width: 18rem;">
               <div class="card-body">
                 <div class="d-flex justify-content-between mb-4">
-                  <h5 class="card-title" style="width:140px">Online Prescription</h5>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-journal-plus" viewBox="0 0 16 16">
+                  <h5 class="card-title special-text" style="width:140px">Online Prescription</h5>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="#ff5757" class="bi bi-journal-plus" viewBox="0 0 16 16">
                     <path fill-rule="evenodd" d="M8 5.5a.5.5 0 0 1 .5.5v1.5H10a.5.5 0 0 1 0 1H8.5V10a.5.5 0 0 1-1 0V8.5H6a.5.5 0 0 1 0-1h1.5V6a.5.5 0 0 1 .5-.5z"/>
                     <path d="M3 0h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-1h1v1a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v1H1V2a2 2 0 0 1 2-2z"/>
                     <path d="M1 5v-.5a.5.5 0 0 1 1 0V5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0V8h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1z"/>
                   </svg>
                 </div>
-                <p class="card-text">You do not need to bring prescription. We provide online prescription.</p>
+                <p class="card-text special-text">You do not need to bring prescription. We provide online prescription.</p>
                 
               </div>
             </div>
             <div class="card" style="width: 18rem;">
               <div class="card-body">
                 <div class="d-flex justify-content-between mb-4">
-                  <h5 class="card-title" style="width:140px">Fast Rert Delivery</h5>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-journals" viewBox="0 0 16 16">
+                  <h5 class="card-title special-text" style="width:140px">Fast Rert Delivery</h5>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="#ff5757" class="bi bi-journals" viewBox="0 0 16 16">
                     <path d="M5 0h8a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2 2 2 0 0 1-2 2H3a2 2 0 0 1-2-2h1a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1H1a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v9a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1H3a2 2 0 0 1 2-2z"/>
                     <path d="M1 6v-.5a.5.5 0 0 1 1 0V6h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0V9h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 2.5v.5H.5a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1H2v-.5a.5.5 0 0 0-1 0z"/>
                   </svg>
                 </div>  
-                <p class="card-text">We always try to deliver your report very fast.</p>
+                <p class="card-text special-text">We always try to deliver your report very fast.</p>
               </div>
             </div>
             
@@ -151,8 +151,8 @@
                 <div class="col-md-3" v-for="(doctor,i) in doctors.slice(0,4)" :key="i">
                   <div class="doctor" v-if="doctor.is_activeted==true">
                       <div class="doctor-pic">
-                        <img v-if="doctor.profile_img" :src="doctor.profile_img" alt="" style="width:100%; height:100%;object-fit: cover;">
-                        <img v-if="!doctor.profile_img" src="~/static/images/default_doctor_pro_pic.png" alt="" style="width:100%; height:100%;object-fit: cover;">
+                        <img v-if="doctor.profile_img" :src="doctor.profile_img" alt="" style="width:100%; height:100%;object-fit: cover; margin-top:10px">
+                        <img v-if="!doctor.profile_img" src="~/static/images/default_doctor_pro_pic.png" alt="" style="width:100%; height:100%;object-fit: cover; margin-top:10px">
                       </div>
                       <div>
                         <h5 class="text-center mt-4">{{doctor.name}}</h5>
@@ -328,15 +328,15 @@ export default {
     });
   },
   created(){
-    if(process.browser){
-      const user = JSON.parse(window.localStorage.getItem('userData'));
-      const loggedin = JSON.parse(window.localStorage.getItem('is_loggedin'));
-      if(user){
-        this.userData.name = user.name;
-        this.userData.patient_id = user._id;
-        this.userData.isLoggedin = loggedin;
-      }
-    }
+    // if(process.browser){
+    //   const user = JSON.parse(window.localStorage.getItem('userData'));
+    //   const loggedin = JSON.parse(window.localStorage.getItem('is_loggedin'));
+    //   if(user){
+    //     this.userData.name = user.name;
+    //     this.userData.patient_id = user._id;
+    //     this.userData.isLoggedin = loggedin;
+    //   }
+    // }
     this.getBanner();
     this.getCoreService();
     this.getDoctors();

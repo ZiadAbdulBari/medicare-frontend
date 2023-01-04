@@ -32,7 +32,7 @@
                 </div>
                 <div>
                     
-                    <div class="d-flex" v-if="is_loggedin===false || is_loggedin==='false'">
+                    <div class="d-flex" v-if="isLoggedin===false || isLoggedin==='false'">
                         <!-- <div class="dropdown">
                             <a class="btn btn bg-color bordered-round dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Registration
@@ -45,7 +45,7 @@
                         <nuxt-link to="/registration" class="btn btn bg-color bordered-round">Registration</nuxt-link>
                         <nuxt-link to="/login" class="btn bordered bordered-round ms-3">Login</nuxt-link>
                     </div>
-                    <ul class="navbar-nav" v-if="is_loggedin===true || is_loggedin==='true'">
+                    <ul class="navbar-nav" v-if="isLoggedin===true || isLoggedin==='true'">
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle after-login" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 <div class="header-pic me-2">
@@ -72,34 +72,28 @@
     export default {
         data(){
             return{
-                is_loggedin: false,
                 name:'',
                 imageURL:'',
                 isActive: false,
             }
         },
-        created(){
-            if(process.browser){
-                const userData = JSON.parse(window.localStorage.getItem('userData'));
-                if(window.localStorage.getItem('is_loggedin')!=null){
-                    this.is_loggedin =JSON.parse(window.localStorage.getItem('is_loggedin'));
-                }
-                if(userData!=null){
-                    this.name = userData.name;
-                    this.imageURL = userData.profile_img;
-                    this.isActive = userData.is_activeted;
-                }
-                
-                // console.log(this.is_loggedin);
+        computed:{
+            isLoggedin(){
+                return this.$store.state.isLoggedin;
+            },
+            token(){
+                return this.$store.state.token;
             }
+        },
+        created(){
+            this.$store.dispatch('authenticationInfo');
         },
         methods:{
             logout(){
                 if(process.browser){
-                    window.localStorage.setItem('is_loggedin','false');
-                    window.localStorage.setItem('token','');
-                    window.localStorage.setItem('userData',"{}");
-                    this.is_loggedin='false';
+                    window.localStorage.removeItem('isLoggedin');
+                    window.localStorage.removeItem('token');
+                    this.$store.dispatch('authenticationInfo');
                     this.$router.push('/');
                 }
             }
@@ -108,5 +102,7 @@
 </script>
 
 <style>
-
+.navbar-brand img{
+    width: 120px;
+}
 </style>

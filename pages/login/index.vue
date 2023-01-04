@@ -2,11 +2,10 @@
     <div class="container">
         <div class="reg-form-wrapper">
             <div class="reg_form">
-                <div>
+                <div class="text-center mb-5">
                     <a href="/">
-                        <h2 class="text-center mb-5">Medicare.</h2>
+                        <img src="~/static/images/logo.png" alt="">
                     </a>
-                    <p class="text-danger">{{nonActiveMgs}}</p>
                 </div>
                 <form>
                     <div class="mb-3">
@@ -27,7 +26,6 @@
 
     </div>
 </template>
-
 <script>
     export default {
         data(){
@@ -43,7 +41,6 @@
                 const data = {
                     email:this.email,
                     password:this.password,
-                    userData:""
                 }
                 this.$axios.post(url,data).then(res=>{
                     console.log(res);
@@ -56,12 +53,13 @@
                            
                         })
                     if(res.status==200){
-                        // this.userData = res.data.checkEmail[0]
+                        let token = JSON.stringify(res.data.access_token);
+                        let isLoggedin = JSON.stringify(true);
                         if(process.browser){
-                            window.localStorage.setItem('token',res.data.access_token);
-                            window.localStorage.setItem('is_loggedin',"true");
-                            window.localStorage.setItem('userData', JSON.stringify(res.data.checkEmail[0]));
+                            window.localStorage.setItem('token', token);
+                            window.localStorage.setItem('isLoggedin', isLoggedin);
                         }
+                        this.$store.dispatch('authenticationInfo');
                         Toast.fire({
                             icon: 'success',
                             title: 'Successfully Loggedin'

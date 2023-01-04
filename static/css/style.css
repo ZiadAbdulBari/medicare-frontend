@@ -18,36 +18,37 @@ label:focus,
     -webkit-appearance:none;
     box-shadow: none !important;
 }
+/* #004aad */
 a,a:hover{
     text-decoration: none;
     color: #333333;
     cursor: pointer;
 }
 .special-card{
-    background-color: #4B49AC;
+    background-color: #ff5757;
     color: white;
 }
 .bg-color{
-    background-color: #4B49AC;
+    background-color: #ff5757;
     color: white;
     padding: 5px 30px;
 }
 .bg-color:hover{
-    border: 1px solid #4B49AC!important;
+    border: 1px solid #ff5757!important;
     color: rgb(3, 3, 3)!important;
     background-color: #ffffff!important;
 }
 .bordered-round{
-    border: 1px solid #4B49AC;
+    border: 1px solid #ff5757;
     border-radius: 150px;
     padding: 5px 30px;
 }
 .bordered-round:hover{
-    background-color: #4B49AC!important;
+    background-color: #ff5757!important;
     color: rgb(255, 255, 255)!important;
 }
 ::selection{
-    background: #4B49AC;
+    background: #ff5757;
     color: white;
 }
 .common-bg-color{
@@ -58,6 +59,7 @@ a,a:hover{
 }
 .section-header{
     margin-bottom: 70px;
+    color:#004aad;
 }
 body{
     font-family: 'poppins';
@@ -76,7 +78,7 @@ body{
     overflow: hidden;
 }
 .dropdown-item:hover{
-    background-color: #4B49AC;
+    background-color: #ff5757;
     color: white;
 }
 .after-login{
@@ -85,6 +87,10 @@ body{
 }
 .banner-main-text{
     font-size: 72px;
+    color: #004aad;
+}
+.special-text{
+    color: #004aad;
 }
 .service-tab{
     width: 50%;
@@ -92,18 +98,18 @@ body{
 .tab-button{
     width: 170px;
     height: 224px;
-    background-color: #9e9cea!important;
+    background-color: #ffffff!important;
     border-radius: 10px;
 }
 .tab-button-icon{
     width: 100px;
     height: 100px;
-    background-color: #fff;
+    background-color: #ff5757;
     border-radius: 50%;
 }
 .tab-button-text{
     margin-top: 26px;
-    color: white;
+    color: #004aad;
     font-weight: 600;
 }
 .tab-bg{
@@ -122,12 +128,13 @@ body{
 .title{
     width: 420px;
     margin-bottom: 30px;
-    color: #333333;
+    color: #004aad;
 }
 .subtitle{
-    color: #333333;
+    color: #6c6c6c;
     margin-bottom: 20px;
     font-size: 20px;
+    font-weight: 600;
 }
 .discription{
     color: #33333386;
@@ -140,7 +147,7 @@ body{
 .doctor-pic{
     width: 122px;
     height: 122px;
-    background-color: #4B49AC;
+    background-color: #004aad;
     border-radius: 50%;
     margin: 0 auto;
     overflow: hidden;
