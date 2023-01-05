@@ -19,16 +19,17 @@
                         <td>{{record.doctor_name}}</td>
                         <td>{{record.disease}}</td>
                         <td>{{new Date(record.chosen_date).toLocaleDateString()}}</td>
-                        <td>
+                        <td>{{record.status}}</td>
+                        <td class="d-none">
                             <!-- {{record.status}} -->
                             <div class="form-check">
-                                <input class="form-check-input" v-model="status" type="radio" value='Pandding' id="pandding" @change="changeStatus(record._id)" :checked="{'true': record.status==='Pandding'}">
+                                <input class="form-check-input" v-model="status" type="radio" value='Pandding' id="pandding" @change="changeStatus(record._id)" :checked="record.status==='Pandding'?'true':'false'">
                                 <label class="form-check-label" for="pandding">
                                     Pandding
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" v-model="status" type="radio" value="Cancel" id="cancel" @change="changeStatus(record._id)" :checked="{'true':record.status==='Cancel'}">
+                                <input class="form-check-input" v-model="status" type="radio" value="Cancel" id="cancel" @change="changeStatus(record._id)" :checked="record.status==='Cancel'?'true':'false'">
                                 <label class="form-check-label" for="cancel">
                                     Cancel
                                 </label>
@@ -85,28 +86,17 @@
             }
         },
         created(){
-            if(process.browser){
-                const user = JSON.parse(window.localStorage.getItem('userData'));
-                const loggedin = JSON.parse(window.localStorage.getItem('is_loggedin'));
-                if(user){
-                    this.role = user.role;
-                    this.id = user._id;
-                    this.isLoggedin = loggedin;
-                }
-            };
             this.getHistory();
-            // this.history = this.props;
         },
         methods:{
             getHistory(){
-                const url = 'doctor/patient-history/'+this.id;
-                let token="";
-                if(process.browser){
-                    token = window.localStorage.getItem("token");
-                }
+                const url = 'doctor/appointment/patient-history';
+                let token=this.$store.state.token;
                 this.$axios.get(url,{ headers: { Authorization: token } }).then(res=>{
-                    console.log(res);
-                    this.history = res.data.data;
+                    // console.log(res);
+                    if(res.status==200){
+                        this.history = res.data.list;
+                    }
                 }).catch(error=>{
                     console.log(error);
                 })
@@ -149,5 +139,8 @@
 </script>
 
 <style>
-
+.form-check-input:checked {
+    background-color: #ff5757!important;
+    border-color: #ff5757!important;
+}
 </style>

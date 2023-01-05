@@ -6,6 +6,7 @@ export const state = () =>{
         token: '',
         id:'',
         profileName:'',
+        role:'',
     }
 }
 export const mutations = {
@@ -16,6 +17,7 @@ export const mutations = {
     setProfileDataToState(state,data){
         state.id = data._id;
         state.profileName = data.name;
+        state.role = data.role;
     }
 }
 export const actions = {

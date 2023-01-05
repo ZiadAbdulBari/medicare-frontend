@@ -1,7 +1,7 @@
 <template>
     <div>
-        <PatientHistory v-if="role==='patient'" />
-        <DoctorHistory v-if="role==='doctor'" />
+        <PatientHistory v-if="role=='patient'"/>
+        <DoctorHistory v-if="role=='doctor'"/>
     </div>
 </template>
 
@@ -14,12 +14,17 @@ import PatientHistory from '../../components/ParientHistory/patientHistory.vue';
         data(){
             return{
                 id:"",
-                role:"",
+                // role:"",
                 isLoggedin:"",
                 history:[],
                 status:"",
                 // statusPanddin:'Pandding',
                 // statusCancel:'Cancel',
+            }
+        },
+        computed:{
+            role(){
+                return this.$store.state.role;
             }
         },
         created(){

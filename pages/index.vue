@@ -115,7 +115,7 @@
             <div class="tab-content tab-bg" id="v-pills-tabContent">
               <div class="tab-pane fade" :class="{'show active':i===0}" v-for="(service,i) in coreService" :key="i" :id="'v-pills-'+service.service_name+'-'+i" role="tabpanel" :aria-labelledby="'v-pills-'+service.service_name+'-tab-'+i" tabindex="0">
                 <div class="tab-img">
-                  <img src="~/static/images/service1.png" class="w-100" alt="">
+                  <img :src="service.image" class="w-100" alt="">
                 </div>
                 <div class="tab-text mt-4 pb-3 px-3">
                   <h3>{{service.title}}</h3>
